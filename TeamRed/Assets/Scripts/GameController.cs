@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using Assets;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
     public static GameController instance;
     public Player player1;
@@ -11,11 +12,11 @@ public class GameController : MonoBehaviour {
     public MapController mapController;
     public Character selectedCharacter;
     public float currentTurnTime;
-    public const float TURN_TIME=30;
+    public const float TURN_TIME = 30;
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             currentTurnTime = TURN_TIME;
@@ -39,35 +40,34 @@ public class GameController : MonoBehaviour {
         currentTurnTime = TURN_TIME;
         selectedCharacter = null;
     }
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         selectedCharacter = null;
         SpawnCastles();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		DecreaseTurnTime(Time.deltaTime); //Decremento por fotograma
+
+    // Update is called once per frame
+    void Update()
+    {
+        DecreaseTurnTime(Time.deltaTime); //Decremento por fotograma
         if (currentTurnTime <= 0)
         {
             ChangeTurn();
         }
         /*if (Input.touchCount == 1 )
         {*/
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             //var touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             var touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
-                if (hit != null && hit.collider != null)
-                {
-                    Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
-                    this.interactWithCell(hitCell);
-                    //Destroy(hitCell.gameObject); // TODO Take this out, just for trials
-                }
-        }
-        else
-        {
-            //Don't do anything
+            if (hit != null && hit.collider != null)
+            {
+                Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
+                this.interactWithCell(hitCell);
+                //Destroy(hitCell.gameObject); // TODO Take this out, just for trials
+            }
         }
     }
 
@@ -81,13 +81,15 @@ public class GameController : MonoBehaviour {
                 Debug.Log("Me han seleccionado");
                 this.selectedCharacter = c.hoverCharacter;
             }
-        } else
+        }
+        else
         {
             if (c.hoverCharacter == null && this.selectedCharacter.CanMove(c))
             {
                 Debug.Log("Me he movido");
                 this.selectedCharacter.Move(c);
-            } else if (c.hoverCharacter != null)
+            }
+            else if (c.hoverCharacter != null)
             {
                 if (c.hoverCharacter == this.selectedCharacter)
                 {
@@ -118,61 +120,6 @@ public class GameController : MonoBehaviour {
                 }
             }
         }
-
-        /*
-
-        if (c.hoverCharacter == null)
-        {
-            if (this.selectedCharacter != null)
-            {
-                if (this.selectedCharacter.CanMove(c))
-                {
-                    this.selectedCharacter.Move(c);
-                } else
-                {
-                    // TODO do something if cannot move on GUI
-                }
-            }
-        } else {
-            if (c.hoverCharacter == this.selectedCharacter)
-            {
-                if (this.selectedCharacter == null)
-                {
-                    this.selectedCharacter = c.hoverCharacter;
-                }
-                else
-                {
-                    this.selectedCharacter = null;
-                }
-            } else
-            {
-                if (c.hoverCharacter.owner == actualPlayer)
-                {
-                    this.selectedCharacter = c.hoverCharacter;
-                } else if (c.hoverCharacter.owner != null) // if it is not the excalibur
-                {
-                    if (this.selectedCharacter.CanAttack(c))
-                    {
-                        this.selectedCharacter.Attack(c);
-                    } else
-                    {
-                        // TODO put something on GUI if cannot
-                    }
-                } else
-                {
-                    if (this.selectedCharacter is King){
-                        King k = (King)this.selectedCharacter;
-                        if (k.CanGetSword(c))
-                        {
-                            k.GetSword(c);
-                        } else
-                        {
-                            //TODO put something on GUI if cannot
-                        }
-                    }
-                }
-            }
-        }*/
     }
 
     public void DecreaseTurnTime(float timeDecrease)
@@ -186,7 +133,7 @@ public class GameController : MonoBehaviour {
         Castle castle = gameObject.GetComponent<Castle>();
         castle.owner = player1;
 
-        player1.castleCells = new List<Cell>();       
+        player1.castleCells = new List<Cell>();
         player1.castle = castle;
         player1.castleCells.Add(MapController.instance.map[0, 0]);
         player1.castleCells.Add(MapController.instance.map[1, 0]);
@@ -199,7 +146,7 @@ public class GameController : MonoBehaviour {
         player2.castleCells = new List<Cell>();
         player2.castle = castle2;
         player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 1, MapController.instance._mapHeight - 1]);
-        player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 2  , MapController.instance._mapHeight - 1]);
+        player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 2, MapController.instance._mapHeight - 1]);
         gameObject.transform.position = new Vector3(player2.castleCells[0].transform.position.x, player2.castleCells[0].transform.position.y, -9.6f);
 
     }
