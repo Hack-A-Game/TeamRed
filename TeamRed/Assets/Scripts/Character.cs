@@ -6,30 +6,32 @@ using Assets;
 public abstract class Character : MonoBehaviour {
 
     public Player owner;
+
+	// Las que hay que implementar
     public int maxHealth;
 	public int currentHealth;
     public int maxMove;
     public int maxAction;
+	public int costPerAction;
+	public int costPerMovement;
+	public int damage;
+	public int attackRange;
+
 	public int turnMoves;
 	public int turnActions;
-	public int damage;
 	public int turnsToSpawn = 0;
 	public bool isSpawning = false;
-    public int costPerAction;
-    public int costPerMovement;
     public bool canMove = true;
-
-    public string characterInfoText = "";
-    private Rect characterInfoRect = new Rect(95, 160, 175, 40);
-
-        
+    public string characterInfoText = "";    
 	private SpriteRenderer sprite;
 	private Cell actualCell;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         characterInfoText = "";
-        sprite = GetComponent<SpriteRenderer> ();
+		sprite = GetComponent<SpriteRenderer> ();
+
 		startVariables ();
 	}
 
@@ -48,6 +50,7 @@ public abstract class Character : MonoBehaviour {
 
 	void Spawn() {
 		Castle castle = owner.castle;
+		currentHealth = maxHealth;
 		this.sprite.enabled = true;
 		castle.SpawnPlayer (this, null);
 	}
@@ -57,7 +60,6 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	float calculateMoveCost(int x, int y) {
-		//TODO: FILLME
 		return costPerMovement * (Mathf.Abs(actualCell.posX - x) + Mathf.Abs(actualCell.posY - y));
 	}
 
@@ -68,7 +70,6 @@ public abstract class Character : MonoBehaviour {
 		Vector3 tmp = this.transform.position;
 		tmp.z = tmp.y;
 		this.transform.position = tmp;
-		// TODO: Actualizar la Cell con el chacho
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
 
