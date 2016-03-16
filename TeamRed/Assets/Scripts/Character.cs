@@ -6,24 +6,32 @@ using Assets;
 public abstract class Character : MonoBehaviour {
 
     public Player owner;
+
+	// Las que hay que implementar
     public int maxHealth;
 	public int currentHealth;
     public int maxMove;
     public int maxAction;
+	public int costPerAction;
+	public int costPerMovement;
+	public int damage;
+	public int attackRange;
+
 	public int turnMoves;
 	public int turnActions;
-	public int damage;
 	public int turnsToSpawn = 0;
 	public bool isSpawning = false;
-    public int costPerAction;
-    public int costPerMovement;
     public bool canMove = true;
+    public string characterInfoText = "";    
 	private SpriteRenderer sprite;
 	private Cell actualCell;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
+        characterInfoText = "";
 		sprite = GetComponent<SpriteRenderer> ();
+
 		startVariables ();
 	}
 
@@ -42,6 +50,7 @@ public abstract class Character : MonoBehaviour {
 
 	void Spawn() {
 		Castle castle = owner.castle;
+		currentHealth = maxHealth;
 		this.sprite.enabled = true;
 		castle.SpawnPlayer (this, null);
 	}
@@ -51,22 +60,19 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	float calculateMoveCost(int x, int y) {
-		//TODO: FILLME
 		return costPerMovement * (Mathf.Abs(actualCell.posX - x) + Mathf.Abs(actualCell.posY - y));
 	}
 
-	void Move(int x, int y) {
-		
-	}
+
 
 	void Move(Cell destiny) {
 		this.transform.position = destiny.transform.position + new Vector3 (0, 1, 1);
 		Vector3 tmp = this.transform.position;
 		tmp.z = tmp.y;
 		this.transform.position = tmp;
-		// TODO: Actualizar la Cell con el chacho
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
+
 	}
 
 	void Attack(Character enemy) {
@@ -86,5 +92,16 @@ public abstract class Character : MonoBehaviour {
 		}
 	}
 
-	//TODO: EVERYTHING
+
+    void OnGUI()
+
+    {
+        characterInfoText = "L: " + currentHealth.ToString() + "\n" + "M:";
+      
+
+        Vector3 infoPosition = Camera.main.WorldToScreenPoint(transform.position);
+        GUI.Label(new Rect(infoPosition.x, (Screen.height - 0.5f), 100, 50), characterInfoText);
+
+    }
+
 }
