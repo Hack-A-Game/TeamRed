@@ -37,7 +37,7 @@ public class Castle : Character {
     {
         Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
         CharacterAttack(cell);
-        Debug.Log("Castillo ataca celda. x= " + cell.posX "y= " + cell.posY);
+        Debug.Log("Castillo ataca celda. x= " + cell.posX + "y= " + cell.posY);
     }
     
     public void SpawnPlayer(Character character)
