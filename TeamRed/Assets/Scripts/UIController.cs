@@ -6,25 +6,22 @@ public class UIController : MonoBehaviour {
 
 
     public Text timeText;
-    public Text pointsText;
     public Text playerText;
-    public Text remainingMovementsText;
-    public Text liveText;          //Store a reference to the UI Text component which will display the number remaining lives
-                                   // Use this for initialization
+    
 
 
     void Start () {
-        //timeText.text = " ";
-        //pointsText.text = " ";
-        //playerText.text = " ";
+        timeText.text = "";
+        playerText.text = " ";
 	
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-        //playerText.text = "PLAYER"+ GameController.instance.actualPlayer.playerId.ToString();
+
+	void Update () {
+        playerText.text = "PLAYER  "+ GameController.instance.actualPlayer.playerId.ToString();
         //pointsText = "POINTS" + GameController.actualPlayer.points.toString();
-        //timeText.text = "TIME" + GameController.instance.currentTurnTime.ToString();
+        timeText.text = "TIME: " + Mathf.Floor(GameController.instance.currentTurnTime).ToString();
 	
 	}
 }
