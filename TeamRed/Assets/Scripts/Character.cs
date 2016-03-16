@@ -43,6 +43,7 @@ public abstract class Character : MonoBehaviour {
 			turnsToSpawn--;
 			if (turnsToSpawn == 0) {
 				Spawn ();
+				isSpawning = false;
 			}
 		}
 		turnMoves = maxMove;
