@@ -72,6 +72,7 @@ public abstract class Character : MonoBehaviour {
 		Vector3 tmp = this.transform.position;
 		tmp.z = tmp.y;
 		this.transform.position = tmp;
+		actualCell.hoverCharacter = null;
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
 
