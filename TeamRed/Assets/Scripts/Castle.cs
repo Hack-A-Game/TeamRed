@@ -82,7 +82,9 @@ public class Castle : Character {
             //Debug.Log("currenthoveredhealth " + cell.hoverCharacter.currentHealth);
             cell.hoverCharacter.currentHealth -= 15;//this.damage;
             //Debug.Log("nuevahealt" + cell.hoverCharacter.currentHealth);
-
+			if (cell.hoverCharacter is King && cell.hoverCharacter.currentHealth <= 0) {
+				GameController.instance.isWin = true;
+			}
         }
 
         foreach (Cell cell1 in MapController.instance.GetContiguousCells(cell))
@@ -92,6 +94,9 @@ public class Castle : Character {
                 //Debug.Log("celda contiguacon enemigo " + cell1);//this.damage);
                 cell1.hoverCharacter.currentHealth -= 3;
             }
+			if (cell.hoverCharacter is King && cell.hoverCharacter.currentHealth <= 0) {
+				GameController.instance.isWin = true;
+			}
         }
     }
     public void  SpawnCharacters()
