@@ -26,7 +26,7 @@ public class Castle : Character {
 	// Update is called once per frame
 	void Update () {
         contador += Time.deltaTime;
-        if(contador > 3)
+        if(contador > 12)
         {
             RandomAttack();
             contador = 0;
@@ -37,7 +37,7 @@ public class Castle : Character {
     {
         Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
         CharacterAttack(cell);
-        //Debug.Log(cell.posX + cell.posY);
+        Debug.Log("Castillo ataca celda. x= " + cell.posX "y= " + cell.posY);
     }
     
     public void SpawnPlayer(Character character)
