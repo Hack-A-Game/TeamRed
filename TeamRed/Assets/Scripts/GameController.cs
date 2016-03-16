@@ -86,7 +86,14 @@ public class GameController : MonoBehaviour {
             {
                 Debug.Log("Me he movido");
                 this.selectedCharacter.Move(c);
-            } //if (c.hoverCharacter)
+            } else if (c.hoverCharacter != null)
+            {
+                if (c.hoverCharacter == this.selectedCharacter)
+                {
+                    Debug.Log("Me han deseleccionado");
+                    this.selectedCharacter = null;
+                }
+            }
         }
 
         /*
