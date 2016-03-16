@@ -100,7 +100,7 @@ public abstract class Character : MonoBehaviour {
 			CharacterAttack (cell);
 			UpdateTime (costPerAction);
 			turnActions--;
-            hpUi.transform.localScale += new Vector3(0.1F, 0, 0);
+			hpUi.transform.localScale = new Vector3(((float) currentHealth)/maxHealth, 0, 0);
         }
 	}
 
