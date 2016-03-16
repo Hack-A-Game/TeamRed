@@ -8,18 +8,7 @@ public class Assasin : Character {
         throw new NotImplementedException();
     }
 
-    public override void StartVariables()
-    {
-        maxHealth = 5;
-        currentHealth = maxHealth;
-        maxMove = 9;
-        maxAction = 1;
-        costPerAction = 1;
-        costPerMovement = 3;
-        damage = 25;
-        attackRange = 1;
-
-    }
+    
 
     // Use this for initialization
     void Start () {

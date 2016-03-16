@@ -8,18 +8,7 @@ public class Mage : Character {
         cell.hoverCharacter.currentHealth -= damage;
     }
 
-    public override void StartVariables()
-    {
-        maxHealth = 25;
-        currentHealth = maxHealth;
-        maxMove = 3;
-        maxAction = 1;
-        costPerAction = 1;
-        costPerMovement = 5;
-        damage = 15;
-        attackRange = 8;
-
-    }
+    
 
     // Use this for initialization
     void Start () {

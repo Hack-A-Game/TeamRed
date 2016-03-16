@@ -6,19 +6,7 @@ public class King : Character
 {
 
     public bool hasSword;
-    public override void StartVariables()
-    {
-        currentHealth = maxHealth;
-        maxMove = 1;
-        attackRange = 1;
-
-        //TODO balanceo
-        maxHealth = 50;
-        maxAction = 2;
-        costPerAction = 4;
-        costPerMovement = 2;
-        damage = 5;
-    }
+   
 
     public bool CanGetSword(Cell cell)
     {

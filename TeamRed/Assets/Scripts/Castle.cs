@@ -58,17 +58,7 @@ void Update () {
 		return null;
 	}
 
-    public override void StartVariables()
-    {
-        maxHealth = int.MaxValue;
-        currentHealth = maxHealth;
-        maxMove = 0;
-        maxAction = 0;
-        costPerAction = 0;
-        costPerMovement = 0;
-        damage = 50;
-        //attackRange = 10;
-}
+   
 
     public override void CharacterAttack(Cell cell)
     {
