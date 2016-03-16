@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class MapController : MonoBehaviour
 {
 
-    public MapController instance;
+    public static MapController instance;
     public Cell[,] map;
     public Vector3 mapOrigin;
     private int _mapWidth = 7;
@@ -53,6 +53,62 @@ public class MapController : MonoBehaviour
         Cell cell = gameObject.GetComponent<Cell>();
         cell.SetPosition(x, y);
         return cell;
+    }
+
+    public List<Cell> GetContiguousCells(Cell cell)
+    {
+        List<Cell> contiguousCells = new List<Cell>();
+
+        //Top Left
+        if(cell.posX - 1 >= 0 && cell.posY - 1 >= 0)
+        {
+            contiguousCells.Add(map[cell.posX - 1, cell.posY - 1]);
+        }
+
+
+        //Top
+        if (cell.posY - 1 >= 0)
+        {
+            contiguousCells.Add(map[cell.posX, cell.posY - 1]);
+        }
+
+        //Top Right
+        if (cell.posX + 1 < _mapWidth && cell.posY - 1 >= 0)
+        {
+            contiguousCells.Add(map[cell.posX + 1, cell.posY - 1]);
+        }
+
+        // Left
+        if (cell.posX - 1 >= 0)
+        {
+            contiguousCells.Add(map[cell.posX - 1, cell.posY]);
+        }
+
+        // Right
+        if (cell.posX + 1 < _mapWidth)
+        {
+            contiguousCells.Add(map[cell.posX + 1, cell.posY]);
+        }
+
+        //Bottom Left
+        if (cell.posX - 1 >= 0 && cell.posY + 1 < _mapHeight)
+        {
+            contiguousCells.Add(map[cell.posX - 1, cell.posY + 1]);
+        }
+
+        //Bottom
+        if (cell.posY + 1 < _mapHeight)
+        {
+            contiguousCells.Add(map[cell.posX, cell.posY + 1]);
+        }
+
+        //Bottom Right
+        if (cell.posX + 1 < _mapWidth && cell.posY + 1 < _mapHeight)
+        {
+            contiguousCells.Add(map[cell.posX + 1, cell.posY + 1]);
+        }
+
+        return contiguousCells;
     }
 
 }
