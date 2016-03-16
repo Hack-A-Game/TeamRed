@@ -48,7 +48,19 @@ public class GameController : MonoBehaviour {
         {
             ChangeTurn();
         }
-	}
+        if (Input.touchCount == 1)
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                var touchPosition = Input.GetTouch(0).position;
+                Debug.Log("Posicion:" + touchPosition);
+            }
+        }
+        else
+        {
+            //Debug.Log("User has  finger(s) touching the screen");
+        }
+    }
     void decreaseTurnTime(float timeDecrease)
     {
         currentTurnTime -= timeDecrease; //TODO modificar el contador aqui!!
