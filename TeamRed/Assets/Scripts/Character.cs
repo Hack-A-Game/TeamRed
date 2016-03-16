@@ -6,6 +6,7 @@ using Assets;
 public abstract class Character : MonoBehaviour {
 
     public Player owner;
+	public string tag;
 
 	// Las que hay que implementar
     public int maxHealth;
@@ -35,6 +36,7 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	abstract public void startVariables ();
+	abstract public void characterAttack (Cell cell);
 
 	void beginTurn() {
 		if (isSpawning) {
@@ -77,9 +79,9 @@ public abstract class Character : MonoBehaviour {
 
 	}
 
-	void Attack(Character enemy) {
+	void Attack(Cell cell) {
 		if (turnActions > 0) {
-			enemy.currentHealth -= damage;
+			characterAttack (cell);
 			updateTime (costPerAction);
 			turnActions--;
 		}
@@ -103,5 +105,11 @@ public abstract class Character : MonoBehaviour {
         GUI.Label(new Rect(infoPosition.x, (Screen.height - 0.5f), 100, 50), characterInfoText);
 
     }
+
+	public bool compareTo(Character other) {
+		if (other.GetType() == this.GetType())
+			return true;
+		return false;
+	}
 
 }
