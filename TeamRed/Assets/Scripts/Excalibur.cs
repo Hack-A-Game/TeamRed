@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Mage : Character {
+public class Excalibur : Character {
 
     public override void startVariables()
     {
-        maxHealth = 25;
+        maxHealth = 99;
         currentHealth = maxHealth;
-        maxMove = 3;
-        maxAction = 1;
-        costPerAction = 1;
-        costPerMovement = 5;
-        damage = 15;
-        attackRange = 8;
+        maxMove = 0;
+        maxAction = 0;
+        costPerAction = 0;
+        costPerMovement = 0;
+        damage = 0;
+        attackRange = 0;
 
     }
 

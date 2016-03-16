@@ -16,8 +16,15 @@ public class Castle : MonoBehaviour {
 	
 	}
 
-    public void SpawnPlayer(Character character, Cell cell)
+    public void SpawnPlayer(Character character)
     {
-
+		// Search nearby free cell
+		Cell freeCell = searchFreeCell();
+		character.Move (freeCell);
     }
+
+	private Cell searchFreeCell() {
+		//TODO: Implement search algorithm
+		return null;
+	}
 }

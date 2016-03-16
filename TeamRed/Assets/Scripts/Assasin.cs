@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
-public class Archer : Character {
+public class Assasin : Character {
+
     public override void startVariables()
     {
-        maxHealth = 10;
+        maxHealth = 5;
         currentHealth = maxHealth;
-        maxMove = 3;
+        maxMove = 9;
         maxAction = 1;
         costPerAction = 1;
         costPerMovement = 3;
-        damage = 10;
-        attackRange = 5; 
+        damage = 25;
+        attackRange = 1;
 
     }
 
-
-// Use this for initialization
-void Start () {
+    // Use this for initialization
+    void Start () {
 	
 	}
 	

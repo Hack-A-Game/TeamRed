@@ -3,8 +3,21 @@ using System.Collections;
 
 public class Cannoneer : Character {
 
-	// Use this for initialization
-	void Start () {
+    public override void startVariables()
+    {
+        maxHealth = 25;
+        currentHealth = maxHealth;
+        maxMove = 3;
+        maxAction = 1;
+        costPerAction = 1;
+        costPerMovement = 3;
+        damage = 15;
+        attackRange = 8; 
+
+    }
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
