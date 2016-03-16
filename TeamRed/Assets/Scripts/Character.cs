@@ -67,7 +67,7 @@ public abstract class Character : MonoBehaviour {
 		return costPerMovement * ManhattanDistance(cell);
 	}
 
-	private float ManhattanDistance(Cell cell) {
+	public float ManhattanDistance(Cell cell) {
 		return Mathf.Abs (actualCell.posX - cell.posX) + Mathf.Abs (actualCell.posY - cell.posY);
 	}
 
