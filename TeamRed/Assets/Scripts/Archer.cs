@@ -3,6 +3,11 @@ using System.Collections;
 using System;
 
 public class Archer : Character {
+    public override void characterAttack(Cell cell)
+    {
+        throw new NotImplementedException();
+    }
+
     public override void startVariables()
     {
         maxHealth = 10;

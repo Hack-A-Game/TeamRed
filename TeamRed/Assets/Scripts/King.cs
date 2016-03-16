@@ -33,4 +33,9 @@ public class King : Character {
     void Update () {
 	
 	}
+
+    public override void characterAttack(Cell cell)
+    {
+        throw new NotImplementedException();
+    }
 }
