@@ -32,5 +32,6 @@ public class Castle : MonoBehaviour {
 				return cell;
 			}
 		}
+		return null;
 	}
 }
