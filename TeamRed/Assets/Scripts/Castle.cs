@@ -25,23 +25,19 @@ public class Castle : Character {
 
 	// Update is called once per frame
 	void Update () {
-        //contador += Time.deltaTime;
-        //if(contador > 12)
-        //{
-        //    RandomAttack();
-        //    contador = 0;
-        //}
+        contador += Time.deltaTime;
+        if(contador > 3)
+        {
+            RandomAttack();
+            contador = 0;
+        }
 	}
 
     private void RandomAttack()
     {
-        //generar casilla aleatoria del otro lado
-        Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value*6), Mathf.RoundToInt(UnityEngine.Random.value*10)];
-        /**while (cell.hoverCharacter.owner.CompareTo(this.owner))
-        {
-            cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
-        }**/
+        Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
         CharacterAttack(cell);
+        //Debug.Log(cell.posX + cell.posY);
     }
     
     public void SpawnPlayer(Character character)
@@ -66,12 +62,20 @@ public class Castle : Character {
     {
         if (cell.hoverCharacter != null)
         {
-            cell.hoverCharacter.currentHealth -= damage;
+            //Debug.Log("Damage " + 30);//this.damage);
+            //Debug.Log("currenthoveredhealth " + cell.hoverCharacter.currentHealth);
+            cell.hoverCharacter.currentHealth -= 30;//this.damage;
+            //Debug.Log("nuevahealt" + cell.hoverCharacter.currentHealth);
+
         }
-        foreach (Cell cell1 in GameController.instance.mapController.GetContiguousCells(cell))
+
+        foreach (Cell cell1 in MapController.instance.GetContiguousCells(cell))
         {
             if (cell1.hoverCharacter != null)
-                cell1.hoverCharacter.currentHealth -= damage;
+            {
+                //Debug.Log("celda contiguacon enemigo " + cell1);//this.damage);
+                cell1.hoverCharacter.currentHealth -= 10;
+            }
         }
     }
     public void  SpawnCharacters()
