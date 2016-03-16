@@ -10,7 +10,7 @@ public class Excalibur : Character {
 
     public override void StartVariables()
     {
-        maxHealth = 99;
+        maxHealth = int.MaxValue;
         currentHealth = maxHealth;
         maxMove = 0;
         maxAction = 0;
