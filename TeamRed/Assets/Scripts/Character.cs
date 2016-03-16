@@ -58,7 +58,7 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	private void UpdateTime(float time) {
-		GameController.instance.decreaseTurnTime (time);
+		GameController.instance.DecreaseTurnTime (time);
 	}
 
 	float CalculateMoveCost(Cell cell) {

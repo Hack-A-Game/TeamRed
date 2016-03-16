@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 public class Archer : Character {
-    public override void characterAttack(Cell cell)
+    public override void CharacterAttack(Cell cell)
     {
         throw new NotImplementedException();
     }
