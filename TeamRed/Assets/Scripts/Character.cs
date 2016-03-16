@@ -64,7 +64,7 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	float CalculateMoveCost(Cell cell) {
-		Debug.Log ("MovCost: " + costPerMovement);
+		Debug.Log ("CostMov: " + costPerMovement + " Manh:" +ManhattanDistance(cell));
 		return costPerMovement * ManhattanDistance(cell);
 	}
 
@@ -85,10 +85,10 @@ public abstract class Character : MonoBehaviour {
 		Vector3 tmp = this.transform.position;
 		tmp.z = -tmp.y;
 		this.transform.position = tmp;
+		UpdateTime (CalculateMoveCost(destiny));
 		actualCell.hoverCharacter = null;
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
-		UpdateTime (CalculateMoveCost(destiny));
 	}
 
 	public void Attack(Cell cell) {

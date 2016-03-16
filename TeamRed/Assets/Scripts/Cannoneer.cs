@@ -6,7 +6,7 @@ public class Cannoneer : Character {
     public override void CharacterAttack(Cell cell)
     {
         cell.hoverCharacter.currentHealth -= damage;
-        foreach (Cell cell1 in GameController.instance.mapController.GetContiguousCells(cell)){
+        foreach (Cell cell1 in MapController.instance.GetContiguousCells(cell)){
             if (cell1.hoverCharacter!=null)
                 cell1.hoverCharacter.currentHealth -= damage;
         }
