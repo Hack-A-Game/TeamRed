@@ -26,6 +26,11 @@ namespace Assets
                 return false;
             } 
         }
+
+        public void SpawnPlayers()
+        {
+            
+        }
     }
 
 }

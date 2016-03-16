@@ -65,7 +65,6 @@ public class MapController : MonoBehaviour
             contiguousCells.Add(map[cell.posX - 1, cell.posY - 1]);
         }
 
-
         //Top
         if (cell.posY - 1 >= 0)
         {
@@ -110,5 +109,6 @@ public class MapController : MonoBehaviour
 
         return contiguousCells;
     }
+
 
 }
