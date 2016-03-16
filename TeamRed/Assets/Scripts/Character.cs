@@ -33,7 +33,7 @@ public abstract class Character : MonoBehaviour {
     public void Start () {
         characterInfoText = "";
 		sprite = GetComponent<SpriteRenderer> ();
-        hpUi = transform.Find("HP").GetComponent<SpriteRenderer>();
+        hpUi = transform.Find("HP").GetChild(1).GetComponent<SpriteRenderer>();
 	}
 
 	abstract public void CharacterAttack (Cell cell);
@@ -57,14 +57,18 @@ public abstract class Character : MonoBehaviour {
 		turnActions = maxAction;
 		this.sprite.enabled = true;
 		castle.SpawnPlayer (this);
-    }
+	}
 
 	private void UpdateTime(float time) {
 		GameController.instance.DecreaseTurnTime (time);
 	}
 
 	float CalculateMoveCost(Cell cell) {
-		return costPerMovement * ManhattanDistance(cell);
+		Debug.Log ("CostMov: " + costPerMovement + " Manh:" +ManhattanDistance(cell));
+        if (ManhattanDistance(cell) <= turnMoves)
+            return costPerMovement * ManhattanDistance(cell);
+        else
+            return 1000;
 	}
 
 	public float ManhattanDistance(Cell cell) {
