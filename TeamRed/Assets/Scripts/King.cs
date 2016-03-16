@@ -22,15 +22,16 @@ public class King : Character
 
     public override void CharacterAttack(Cell cell)
     {
+        int currentdmg;
         if (hasSword)
         {
-            damage = 10;
+            currentdmg = damage*2;
         }
         else
         {
-            damage = 5;
+            currentdmg = damage;
         }
-        cell.hoverCharacter.currentHealth -= damage;
+        cell.hoverCharacter.currentHealth -= currentdmg;
     }
     public void GetSword(Cell cell)
     {
