@@ -32,7 +32,7 @@ public class VictoryScreen : MonoBehaviour {
 
     public void ReturnToMainMenu()
     {
-        if (enterTime + 5f <= Time.time)
+        if (enterTime + 2f <= Time.time)
             Application.LoadLevel("initMenu");
     }
 }
