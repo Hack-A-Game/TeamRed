@@ -4,12 +4,8 @@ using System.Collections;
 public class Cell : MonoBehaviour {
 
     public Character hoverCharacter = null;
-    int _posX;
-    int _posY;
-
-    public int posX { get { return _posX; } }
-    public int posY { get { return _posY; } }
-
+    public int posX;
+    public int posY;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +19,7 @@ public class Cell : MonoBehaviour {
 
     public void SetPosition(int x, int y)
     {
-        _posX = x;
-        _posY = y;
+        posX = x;
+        posY = y;
     }
 }
