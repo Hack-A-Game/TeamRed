@@ -24,7 +24,7 @@ public abstract class Character : MonoBehaviour {
     public string characterInfoText = "";    
 	private SpriteRenderer sprite;
 	public Cell actualCell;
-    private SpriteRenderer hpUi;
+    public SpriteRenderer hpUi;
 
     public Sprite red;
     public Sprite blue;
@@ -101,7 +101,7 @@ public abstract class Character : MonoBehaviour {
 			CharacterAttack (cell);
 			UpdateTime (costPerAction);
 			turnActions--;
-			hpUi.transform.localScale = new Vector3(((float) currentHealth)/maxHealth, 0, 0);
+			cell.hoverCharacter.hpUi.transform.localScale = new Vector3(((float) currentHealth)/maxHealth, 0, 0);
         }
 	}
 
