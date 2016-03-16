@@ -8,18 +8,7 @@ public class Excalibur : Character {
         throw new NotImplementedException();
     }
 
-    public override void StartVariables()
-    {
-        maxHealth = int.MaxValue;
-        currentHealth = maxHealth;
-        maxMove = 0;
-        maxAction = 0;
-        costPerAction = 0;
-        costPerMovement = 0;
-        damage = 0;
-        attackRange = 0;
-
-    }
+   
 
     // Use this for initialization
     void Start () {

@@ -8,18 +8,7 @@ public class Archer : Character {
         cell.hoverCharacter.currentHealth -= damage; //TODO falta animacion??
     }
 
-    public override void StartVariables()
-    {
-        maxHealth = 10;
-        currentHealth = maxHealth;
-        maxMove = 3;
-        maxAction = 1;
-        costPerAction = 1;
-        costPerMovement = 3;
-        damage = 10;
-        attackRange = 5; 
-
-    }
+    
 
 
 // Use this for initialization
