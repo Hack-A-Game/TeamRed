@@ -17,7 +17,7 @@ public class Castle : Character {
 		{
 			List<Cell> tmp = MapController.instance.GetContiguousCells (castleCell);
 			foreach(Cell c in tmp) {
-				if (tmp.IndexOf(c) != 0)
+				if (owner.castleCells.IndexOf(c) >= 0)
 					adjacentCells.Add(c);
 			}
 		}
