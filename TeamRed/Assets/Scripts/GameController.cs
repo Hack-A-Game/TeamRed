@@ -48,18 +48,18 @@ public class GameController : MonoBehaviour {
         {
             ChangeTurn();
         }
-        if (Input.touchCount == 1 )
-        {
-           if( Input.GetTouch(0).phase == TouchPhase.Began)
-           {
-                var touchPosition = Input.GetTouch(0).position;
-                RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
+        /*if (Input.touchCount == 1 )
+        {*/
+        if (Input.GetMouseButtonDown(0)) {
+
+            //var touchPosition = Input.GetTouch(0).position;
+            var touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
                 if (hit != null && hit.collider != null)
                 {
                     Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
-                    Destroy(hitCell.gameObject); // TODO Take this out
+                    Destroy(hitCell.gameObject); // TODO Take this out, just for trials
                 }
-           }
         }
         else
         {
