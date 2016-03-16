@@ -10,6 +10,7 @@ namespace Assets
     {
         public int playerId;
         List<Character> characters;
+		Castle castle;
         public Player (int id)
         {
             playerId = id;

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Cell : MonoBehaviour {
 
-    Character hoverCharacter = null;
+    public Character hoverCharacter = null;
     int _posX;
     int _posY;
 
