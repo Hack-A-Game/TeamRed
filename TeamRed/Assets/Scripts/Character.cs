@@ -15,6 +15,7 @@ public abstract class Character : MonoBehaviour {
 	public int costPerAction;
 	public int costPerMovement;
 	public int damage;
+	public int attackRange;
 
 	public int turnMoves;
 	public int turnActions;
@@ -49,6 +50,7 @@ public abstract class Character : MonoBehaviour {
 
 	void Spawn() {
 		Castle castle = owner.castle;
+		currentHealth = maxHealth;
 		this.sprite.enabled = true;
 		castle.SpawnPlayer (this, null);
 	}
