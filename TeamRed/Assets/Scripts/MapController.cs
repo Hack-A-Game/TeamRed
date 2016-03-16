@@ -13,6 +13,8 @@ public class MapController : MonoBehaviour
 
     void Awake()
     {
+        _mapWidth = 7;
+        _mapHeight = 11;
         if (instance == null)
         {
             instance = this;
