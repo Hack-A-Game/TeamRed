@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
                 Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
                 if (this.interactWithCell(hitCell))
                 {
-                    //Application.loadLevel();
+                    Application.LoadLevel(2);
                 }
                 
             }
