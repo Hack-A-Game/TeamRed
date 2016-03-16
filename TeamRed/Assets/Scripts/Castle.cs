@@ -120,6 +120,8 @@ public class Castle : Character {
         {
             SetCharacterSprite(character);
         }
+
+        SetCharacterSprite(this);
     }
 
 
