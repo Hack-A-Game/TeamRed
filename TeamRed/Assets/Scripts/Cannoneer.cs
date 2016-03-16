@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Cannoneer : Character {
+    public override void characterAttack(Cell cell)
+    {
+        throw new NotImplementedException();
+    }
 
     public override void StartVariables()
     {
