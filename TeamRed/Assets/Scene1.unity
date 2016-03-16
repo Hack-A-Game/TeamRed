@@ -366,27 +366,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11458864, guid: 08f474be349742a44a71499834a41426, type: 2}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11458864, guid: 08f474be349742a44a71499834a41426, type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.42068958
       objectReference: {fileID: 0}
     - target: {fileID: 11458864, guid: 08f474be349742a44a71499834a41426, type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11427688, guid: 08f474be349742a44a71499834a41426, type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11427688, guid: 08f474be349742a44a71499834a41426, type: 2}
       propertyPath: m_Color.g
-      value: 0.33793116
+      value: 0.26896554
       objectReference: {fileID: 0}
     - target: {fileID: 11427688, guid: 08f474be349742a44a71499834a41426, type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11427688, guid: 08f474be349742a44a71499834a41426, type: 2}
       propertyPath: m_Enabled
@@ -442,6 +442,7 @@ MonoBehaviour:
   mapController: {fileID: 0}
   selectedCharacter: {fileID: 0}
   currentTurnTime: 0
+  isKingDead: 0
 --- !u!4 &1754256593
 Transform:
   m_ObjectHideFlags: 0
