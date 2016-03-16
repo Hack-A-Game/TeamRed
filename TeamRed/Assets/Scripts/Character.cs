@@ -6,7 +6,6 @@ using Assets;
 public abstract class Character : MonoBehaviour {
 
     public Player owner;
-	public string tag;
 
 	// Las que hay que implementar
     public int maxHealth;

@@ -48,5 +48,6 @@ public class Castle : MonoBehaviour {
         Archer archer = gameObject.GetComponent<Archer>();
         archer.owner = GameController.instance.player1;
         cell.hoverCharacter = archer;
+		archer.actualCell = cell;
     }
 }
