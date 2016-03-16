@@ -73,6 +73,7 @@ public class GameController : MonoBehaviour {
 
     public void interactWithCell(Cell c)
     {
+        //Debug.Log("Han intentado interactuar conmigo");
         if (this.selectedCharacter == null)
         {
             if (c.hoverCharacter != null && c.hoverCharacter.owner == actualPlayer)
@@ -92,14 +93,29 @@ public class GameController : MonoBehaviour {
                 {
                     Debug.Log("Me han deseleccionado");
                     this.selectedCharacter = null;
-                /*} else if (c.hoverCharacter.owner == null)
+                }
+                else if (c.hoverCharacter.owner == null)
                 {
-                    // Excalibur
-                } else
+                    Debug.Log("Sóc l'excalibur!");
+                    if (this.selectedCharacter is King)
+                    {
+                        King k = (King)this.selectedCharacter;
+                        if (k.CanGetSword(c))
+                        {
+                            Debug.Log("El rey cogió el excalibur");
+                            k.GetSword(c);
+                        }
+                    }
+                }
+                else if (c.hoverCharacter.owner != actualPlayer)
                 {
-                    // Other player
-
-                }*/
+                    Debug.Log("Soy un enemigo!");
+                    if (this.selectedCharacter.CanAttack(c))
+                    {
+                        Debug.Log("He atacado!");
+                        this.selectedCharacter.Attack(c);
+                    }
+                }
             }
         }
 
