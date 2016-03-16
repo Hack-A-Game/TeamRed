@@ -8,10 +8,10 @@ public abstract class Character : MonoBehaviour {
     public Player owner;
 
 	// Las que hay que implementar
-    public int maxHealth;
+	public int maxHealth;
 	public int currentHealth;
-    public int maxMove;
-    public int maxAction;
+	public int maxMove;
+	public int maxAction;
 	public int costPerAction;
 	public int costPerMovement;
 	public int damage;
@@ -27,14 +27,12 @@ public abstract class Character : MonoBehaviour {
     private SpriteRenderer hpUi;
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
         characterInfoText = "";
 		sprite = GetComponent<SpriteRenderer> ();
         hpUi = transform.Find("HP").GetComponent<SpriteRenderer>();
-		StartVariables ();
 	}
 
-	abstract public void StartVariables ();
 	abstract public void CharacterAttack (Cell cell);
 
 	void BeginTurn() {
@@ -63,6 +61,7 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	float CalculateMoveCost(Cell cell) {
+		Debug.Log ("MovCost: " + costPerMovement);
 		return costPerMovement * ManhattanDistance(cell);
 	}
 
@@ -79,14 +78,14 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	public void Move(Cell destiny) {
-		this.transform.position = destiny.transform.position + new Vector3 (0, 0.1f, 0);
+		this.transform.position = destiny.transform.position;
 		Vector3 tmp = this.transform.position;
 		tmp.z = -tmp.y;
 		this.transform.position = tmp;
 		actualCell.hoverCharacter = null;
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
-
+		UpdateTime (CalculateMoveCost(destiny));
 	}
 
 	public void Attack(Cell cell) {
