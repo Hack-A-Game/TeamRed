@@ -134,7 +134,7 @@ public class GameController : MonoBehaviour
                     {
                         Debug.Log("He atacado!");
                         this.selectedCharacter.Attack(c);
-                        if (c.hoverCharacter.currentHealth <= 0)
+                        if (c.hoverCharacter is King && c.hoverCharacter.currentHealth <= 0)
                         {
                             return true;
                         }
