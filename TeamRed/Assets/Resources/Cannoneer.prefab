@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.654, z: -1}
+  m_LocalPosition: {x: 0, y: 0.654, z: -1.01}
   m_LocalScale: {x: 0.01, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 474168}
@@ -140,6 +140,7 @@ MonoBehaviour:
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}
+  hpUi: {fileID: 0}
   red: {fileID: 21300000, guid: a43255ab9bed43a43861ff9c2ab55bdb, type: 3}
   blue: {fileID: 21300000, guid: f3219c7a2156cee4b9f60933f445c446, type: 3}
 --- !u!212 &21227396
