@@ -43,7 +43,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.24, y: 0.24}
 --- !u!114 &11463206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a152e2c09bfc8b146935c636d21a2d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverCharacter: {fileID: 0}
 --- !u!212 &21251746
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -81,8 +82,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bd151eddd8990945bb3342bd4bb9bb0, type: 3}
-  m_Color: {r: 0.36551726, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4d543b32bc258c744aab0e25309f3df2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
@@ -94,7 +95,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Color.r
-      value: 0.36551726
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.g
@@ -102,7 +103,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d543b32bc258c744aab0e25309f3df2,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 0.24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
