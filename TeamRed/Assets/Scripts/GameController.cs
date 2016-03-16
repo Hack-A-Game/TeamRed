@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public float currentTurnTime;
     public const float TURN_TIME = 30;
 
+    private float maxy, miny;
+
     void Awake()
     {
         if (instance == null)
@@ -81,6 +83,26 @@ public class GameController : MonoBehaviour
                 }
                 
             }
+        }
+
+        zOrdering();
+    }
+
+    public void zOrdering()
+    {
+        for (int i = 0; i < player1.characters.Count; i++)
+        {
+            Character c = player1.characters[i];
+            float x = c.transform.position.x;
+            float y = c.transform.position.y;
+            c.transform.position = new Vector3(x, y, -(2.6f - y));
+        }
+        for (int i = 0; i < player2.characters.Count; i++)
+        {
+            Character c = player2.characters[i];
+            float x = c.transform.position.x;
+            float y = c.transform.position.y;
+            c.transform.position = new Vector3(x, y, -(2.6f - y));
         }
     }
 
