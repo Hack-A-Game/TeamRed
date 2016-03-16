@@ -36,7 +36,11 @@ public class King : Character
     {
         Excalibur sword = new Excalibur();
         if (cell.hoverCharacter.CompareTo(sword))
-            hasSword = true; //TODO eliminar espada
+        {
+            cell.hoverCharacter.gameObject.SetActive(false);
+            hasSword = true;
+        }
+
     }
 
     // Use this for initialization
