@@ -140,6 +140,8 @@ MonoBehaviour:
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}
+  red: {fileID: 21300000, guid: a43255ab9bed43a43861ff9c2ab55bdb, type: 3}
+  blue: {fileID: 21300000, guid: f3219c7a2156cee4b9f60933f445c446, type: 3}
 --- !u!212 &21227396
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -239,6 +241,16 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f3219c7a2156cee4b9f60933f445c446,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 21300000, guid: a43255ab9bed43a43861ff9c2ab55bdb,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: blue
       value: 
       objectReference: {fileID: 21300000, guid: f3219c7a2156cee4b9f60933f445c446,
         type: 3}
