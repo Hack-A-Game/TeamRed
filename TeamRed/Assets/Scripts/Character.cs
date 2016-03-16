@@ -24,8 +24,7 @@ public abstract class Character : MonoBehaviour {
     public bool canMove = true;
     public string characterInfoText = "";    
 	private SpriteRenderer sprite;
-	private Cell actualCell;
-
+	public Cell actualCell;
 
     // Use this for initialization
     void Start () {
