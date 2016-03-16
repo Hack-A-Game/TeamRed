@@ -14,9 +14,9 @@ public class UIController : MonoBehaviour {
 
 
     void Start () {
-        timeText.text = "";
-        pointsText.text = "";
-        playerText.text = "";
+        //timeText.text = " ";
+        //pointsText.text = " ";
+        //playerText.text = " ";
 	
 	}
 	
