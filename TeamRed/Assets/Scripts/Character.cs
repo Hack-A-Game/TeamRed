@@ -69,7 +69,7 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	public bool CanMove(Cell cell) {
-		return CalculateMoveCost(cell) >= GameController.instance.currentTurnTime;
+		return CalculateMoveCost(cell) <= GameController.instance.currentTurnTime;
 	}
 
 	public bool CanAttack(Cell cell) {
