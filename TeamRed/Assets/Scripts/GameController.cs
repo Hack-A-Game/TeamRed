@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
             actualPlayer = player1;
         }
         currentTurnTime = TURN_TIME;
-        //selectedCharacter = null;
+        selectedCharacter = null;
     }
 	// Use this for initialization
 	void Start () {
@@ -92,7 +92,14 @@ public class GameController : MonoBehaviour {
                 {
                     Debug.Log("Me han deseleccionado");
                     this.selectedCharacter = null;
-                }
+                /*} else if (c.hoverCharacter.owner == null)
+                {
+                    // Excalibur
+                } else
+                {
+                    // Other player
+
+                }*/
             }
         }
 
