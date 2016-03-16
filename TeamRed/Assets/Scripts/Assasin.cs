@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Assasin : Character {
 
-    public override void startVariables()
+    public override void StartVariables()
     {
         maxHealth = 5;
         currentHealth = maxHealth;

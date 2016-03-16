@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 public class Archer : Character {
-    public override void startVariables()
+    public override void StartVariables()
     {
         maxHealth = 10;
         currentHealth = maxHealth;

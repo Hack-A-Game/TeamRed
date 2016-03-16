@@ -5,7 +5,7 @@ using System;
 public class King : Character {
 
     public bool hasSword;
-    public override void startVariables()
+    public override void StartVariables()
     {
         currentHealth = maxHealth;
         maxMove = 1;

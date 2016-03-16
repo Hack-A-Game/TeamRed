@@ -22,7 +22,6 @@ public abstract class Character : MonoBehaviour {
 	public int turnActions;
 	public int turnsToSpawn = 0;
 	public bool isSpawning = false;
-    public bool canMove = true;
     public string characterInfoText = "";    
 	private SpriteRenderer sprite;
 	public Cell actualCell;
@@ -32,13 +31,13 @@ public abstract class Character : MonoBehaviour {
         characterInfoText = "";
 		sprite = GetComponent<SpriteRenderer> ();
 
-		startVariables ();
+		StartVariables ();
 	}
 
-	abstract public void startVariables ();
-	abstract public void characterAttack (Cell cell);
+	abstract public void StartVariables ();
+	abstract public void CharacterAttack (Cell cell);
 
-	void beginTurn() {
+	void BeginTurn() {
 		if (isSpawning) {
 			turnsToSpawn--;
 			if (turnsToSpawn == 0) {
@@ -58,15 +57,25 @@ public abstract class Character : MonoBehaviour {
 		castle.SpawnPlayer (this);
 	}
 
-	private void updateTime(float time) {
+	private void UpdateTime(float time) {
 		GameController.instance.decreaseTurnTime (time);
 	}
 
-	float calculateMoveCost(int x, int y) {
-		return costPerMovement * (Mathf.Abs(actualCell.posX - x) + Mathf.Abs(actualCell.posY - y));
+	float CalculateMoveCost(Cell cell) {
+		return costPerMovement * ManhattanDistance(cell);
 	}
 
+	private float ManhattanDistance(Cell cell) {
+		return Mathf.Abs (actualCell.posX - cell.posX) + Mathf.Abs (actualCell.posY - cell.posY);
+	}
 
+	public bool CanMove(Cell cell) {
+		return CalculateMoveCost(cell) >= GameController.instance.currentTurnTime;
+	}
+
+	public bool CanAttack(Cell cell) {
+		return ManhattanDistance (cell) <= attackRange;
+	}
 
 	public void Move(Cell destiny) {
 		this.transform.position = destiny.transform.position + new Vector3 (0, 1, 1);
@@ -79,10 +88,10 @@ public abstract class Character : MonoBehaviour {
 
 	}
 
-	void Attack(Cell cell) {
-		if (turnActions > 0) {
-			characterAttack (cell);
-			updateTime (costPerAction);
+	public void Attack(Cell cell) {
+		if (turnActions > 0 && CanAttack (cell)) {
+			CharacterAttack (cell);
+			UpdateTime (costPerAction);
 			turnActions--;
 		}
 	}
@@ -106,7 +115,7 @@ public abstract class Character : MonoBehaviour {
 
     }
 
-	public bool compareTo(Character other) {
+	public bool CompareTo(Character other) {
 		if (other.GetType() == this.GetType())
 			return true;
 		return false;

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Excalibur : Character {
 
-    public override void startVariables()
+    public override void StartVariables()
     {
         maxHealth = 99;
         currentHealth = maxHealth;

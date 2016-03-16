@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Cannoneer : Character {
 
-    public override void startVariables()
+    public override void StartVariables()
     {
         maxHealth = 25;
         currentHealth = maxHealth;
