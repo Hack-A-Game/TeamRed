@@ -158,6 +158,11 @@ public class GameController : MonoBehaviour
         player1.castle = castle;
         player1.castleCells.Add(MapController.instance.map[0, 0]);
         player1.castleCells.Add(MapController.instance.map[1, 0]);
+		player1.castleCells.Add(MapController.instance.map[0, 1]);
+		player1.castleCells.Add(MapController.instance.map[1, 1]);
+		foreach (Cell c in player1.castleCells) {
+			c.hoverCharacter = castle;
+		}
         gameObject.transform.position = new Vector3(player1.castleCells[0].transform.position.x, player1.castleCells[0].transform.position.y, -9.6f);
 
         GameObject gameObject2 = Instantiate(Resources.Load("Castle") as GameObject);
@@ -168,6 +173,11 @@ public class GameController : MonoBehaviour
         player2.castle = castle2;
         player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 2  , MapController.instance._mapHeight - 1]);
         player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 1, MapController.instance._mapHeight - 1]);
+		player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 1, MapController.instance._mapHeight - 2]);
+		player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 2, MapController.instance._mapHeight - 2]);
+		foreach (Cell c in player2.castleCells) {
+			c.hoverCharacter = castle2;
+		}
         gameObject.transform.position = new Vector3(player2.castleCells[0].transform.position.x, player2.castleCells[0].transform.position.y, -0.5f);
 
     }
