@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public Character selectedCharacter;
     public float currentTurnTime;
     public const float TURN_TIME = 30;
+    public bool isKingDead = false;
 
     private float maxy, miny;
 
@@ -70,6 +71,18 @@ public class GameController : MonoBehaviour
         }
         /*if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {*/
+        if (isKingDead)
+        {
+            if (actualPlayer.playerId == 1)
+            {
+                PlayerPrefs.SetInt("Winner", 2);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Winner", 1);
+            }
+            Application.LoadLevel(2);
+        }
         if (Input.GetMouseButtonDown(0))
         {
             //var touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
