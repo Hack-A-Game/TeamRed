@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
             actualPlayer = player1;
         }
         currentTurnTime = TURN_TIME;
-        selectedCharacter = null;
+        //selectedCharacter = null;
     }
 	// Use this for initialization
 	void Start () {
@@ -73,6 +73,24 @@ public class GameController : MonoBehaviour {
 
     public void interactWithCell(Cell c)
     {
+        if (this.selectedCharacter == null)
+        {
+            if (c.hoverCharacter != null && c.hoverCharacter.owner == actualPlayer)
+            {
+                Debug.Log("Me han seleccionado");
+                this.selectedCharacter = c.hoverCharacter;
+            }
+        } else
+        {
+            if (c.hoverCharacter == null && this.selectedCharacter.CanMove(c))
+            {
+                Debug.Log("Me he movido");
+                this.selectedCharacter.Move(c);
+            } //if (c.hoverCharacter)
+        }
+
+        /*
+
         if (c.hoverCharacter == null)
         {
             if (this.selectedCharacter != null)
@@ -100,7 +118,7 @@ public class GameController : MonoBehaviour {
             {
                 if (c.hoverCharacter.owner == actualPlayer)
                 {
-                    //TODO Put buffs here
+                    this.selectedCharacter = c.hoverCharacter;
                 } else if (c.hoverCharacter.owner != null) // if it is not the excalibur
                 {
                     if (this.selectedCharacter.CanAttack(c))
@@ -124,7 +142,7 @@ public class GameController : MonoBehaviour {
                     }
                 }
             }
-        }
+        }*/
     }
 
     public void DecreaseTurnTime(float timeDecrease)
