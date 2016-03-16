@@ -5,7 +5,7 @@ using System;
 public class Archer : Character {
     public override void CharacterAttack(Cell cell)
     {
-        throw new NotImplementedException();
+        cell.hoverCharacter.currentHealth -= damage; //TODO falta animacion??
     }
 
     public override void StartVariables()

@@ -5,7 +5,10 @@ using System;
 public class Cannoneer : Character {
     public override void CharacterAttack(Cell cell)
     {
-        throw new NotImplementedException();
+        foreach (Cell cell1 in GameController.instance.mapController.GetContiguousCells(cell)){
+            if (cell1.hoverCharacter!=null)
+                cell1.hoverCharacter.currentHealth -= damage;
+        }
     }
 
     public override void StartVariables()
@@ -16,7 +19,7 @@ public class Cannoneer : Character {
         maxAction = 1;
         costPerAction = 1;
         costPerMovement = 3;
-        damage = 15;
+        damage = 10;
         attackRange = 8; 
 
     }
