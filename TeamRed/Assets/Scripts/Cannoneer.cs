@@ -5,14 +5,14 @@ public class Cannoneer : Character {
 
     public override void startVariables()
     {
-        maxHealth = 10;
+        maxHealth = 25;
         currentHealth = maxHealth;
         maxMove = 3;
         maxAction = 1;
         costPerAction = 1;
         costPerMovement = 3;
-        damage = 10;
-        attackRange = 11; //maximo del tablero
+        damage = 15;
+        attackRange = 8; 
 
     }
 
