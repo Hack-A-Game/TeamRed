@@ -40,7 +40,6 @@ public abstract class Character : MonoBehaviour {
 
 	public void BeginTurn() {
 		if (turnsToSpawn > 0) {
-			Debug.Log ("ded?");
 			turnsToSpawn--;
 			if (turnsToSpawn == 0) {
 				Spawn ();
@@ -108,7 +107,6 @@ public abstract class Character : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (currentHealth <= 0 && turnsToSpawn == 0) {
-			Debug.Log ("ded");
 			this.sprite.enabled = false;
 			turnsToSpawn = 2;
 		}
