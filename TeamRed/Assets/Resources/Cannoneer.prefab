@@ -136,7 +136,7 @@ MonoBehaviour:
   attackRange: 8
   turnMoves: 1
   turnActions: 1
-  turnsToSpawn: 1
+  turnsToSpawn: 0
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}
