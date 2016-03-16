@@ -140,8 +140,8 @@ MonoBehaviour:
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}
-  red: {fileID: 0}
-  blue: {fileID: 0}
+  red: {fileID: 21300000, guid: 668acfea161d0f54382c2186bfb5b464, type: 3}
+  blue: {fileID: 21300000, guid: dec794ec99e19bd49bf4b6fba7ba2dac, type: 3}
 --- !u!212 &21218062
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -248,6 +248,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 21300000, guid: 668acfea161d0f54382c2186bfb5b464,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: blue
+      value: 
+      objectReference: {fileID: 21300000, guid: dec794ec99e19bd49bf4b6fba7ba2dac,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162120}
