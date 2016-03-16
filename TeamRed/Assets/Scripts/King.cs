@@ -31,18 +31,5 @@ public class King : Character
     public void GetSword(Cell cell)
     {
         hasSword = true;
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-        hasSword = false;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+	}
 }

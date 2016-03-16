@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets
 {
@@ -28,6 +29,13 @@ namespace Assets
                 return false;
             } 
         }
+
+		public void BeginTurn() {
+			Debug.Log ("Queso");
+			foreach (Character c in characters) {
+				c.BeginTurn ();
+			}
+		}
     }
 
 }
