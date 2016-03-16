@@ -73,57 +73,92 @@ public class GameController : MonoBehaviour {
 
     public void interactWithCell(Cell c)
     {
-        if (c.hoverCharacter == null)
+        if (this.selectedCharacter == null)
         {
-            if (this.selectedCharacter != null)
+            if (c.hoverCharacter != null && c.hoverCharacter.owner == actualPlayer)
             {
-                if (this.selectedCharacter.CanMove(c))
-                {
-                    this.selectedCharacter.Move(c);
-                } else
-                {
-                    // TODO do something if cannot move on GUI
-                }
+                Debug.Log("Me han seleccionado");
+                this.selectedCharacter = c.hoverCharacter;
             }
-        } else {
-            if (c.hoverCharacter == this.selectedCharacter)
+        }
+        else
+        {
+            if (c.hoverCharacter == null && this.selectedCharacter.CanMove(c))
             {
-                if (this.selectedCharacter == null)
+                Debug.Log("Me he movido");
+                this.selectedCharacter.Move(c);
+            }
+            else if (c.hoverCharacter != null)
+            {
+                if (c.hoverCharacter == this.selectedCharacter)
                 {
-                    this.selectedCharacter = c.hoverCharacter;
-                }
-                else
-                {
+                    Debug.Log("Me han deseleccionado");
                     this.selectedCharacter = null;
-                }
-            } else
-            {
-                if (c.hoverCharacter.owner == actualPlayer)
-                {
-                    //TODO Put buffs here
-                } else if (c.hoverCharacter.owner != null) // if it is not the excalibur
-                {
-                    if (this.selectedCharacter.CanAttack(c))
+                    /*} else if (c.hoverCharacter.owner == null)
                     {
-                        this.selectedCharacter.Attack(c);
+                        // Excalibur
                     } else
                     {
-                        // TODO put something on GUI if cannot
+                        // Other player
+
+                    }*/
+                }
+            }
+
+            /*
+
+            if (c.hoverCharacter == null)
+            {
+                if (this.selectedCharacter != null)
+                {
+                    if (this.selectedCharacter.CanMove(c))
+                    {
+                        this.selectedCharacter.Move(c);
+                    } else
+                    {
+                        // TODO do something if cannot move on GUI
+                    }
+                }
+            } else {
+                if (c.hoverCharacter == this.selectedCharacter)
+                {
+                    if (this.selectedCharacter == null)
+                    {
+                        this.selectedCharacter = c.hoverCharacter;
+                    }
+                    else
+                    {
+                        this.selectedCharacter = null;
                     }
                 } else
                 {
-                    if (this.selectedCharacter is King){
-                        King k = (King)this.selectedCharacter;
-                        if (k.CanGetSword(c))
+                    if (c.hoverCharacter.owner == actualPlayer)
+                    {
+                        this.selectedCharacter = c.hoverCharacter;
+                    } else if (c.hoverCharacter.owner != null) // if it is not the excalibur
+                    {
+                        if (this.selectedCharacter.CanAttack(c))
                         {
-                            k.GetSword(c);
+                            this.selectedCharacter.Attack(c);
                         } else
                         {
-                            //TODO put something on GUI if cannot
+                            // TODO put something on GUI if cannot
+                        }
+                    } else
+                    {
+                        if (this.selectedCharacter is King){
+                            King k = (King)this.selectedCharacter;
+                            if (k.CanGetSword(c))
+                            {
+                                k.GetSword(c);
+                            } else
+                            {
+                                //TODO put something on GUI if cannot
+                            }
                         }
                     }
                 }
-            }
+            }*/
         }
     }
 
