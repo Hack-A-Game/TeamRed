@@ -114,6 +114,10 @@ public class GameController : MonoBehaviour
                         }
                     }
                 }
+                else if (c.hoverCharacter.owner == actualPlayer)
+                {
+                    this.selectedCharacter = c.hoverCharacter;
+                }
                 else if (c.hoverCharacter.owner != actualPlayer)
                 {
                     Debug.Log("Soy un enemigo!");
