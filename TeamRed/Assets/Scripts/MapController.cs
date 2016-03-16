@@ -30,6 +30,8 @@ public class MapController : MonoBehaviour {
     
     void GenerateMap()
     {
+        Camera.main.transform.position = new Vector3(1.45f, 2.83f, -10f);
+
         map = new Cell[_mapWidth, _mapHeight];
 
         for (int y = 0; y < _mapHeight; y++)
