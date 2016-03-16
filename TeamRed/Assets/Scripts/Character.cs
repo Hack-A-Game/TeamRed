@@ -51,8 +51,10 @@ public abstract class Character : MonoBehaviour {
 	void Spawn() {
 		Castle castle = owner.castle;
 		currentHealth = maxHealth;
+		turnMoves = maxMove;
+		turnActions = maxAction;
 		this.sprite.enabled = true;
-		castle.SpawnPlayer (this, null);
+		castle.SpawnPlayer (this);
 	}
 
 	private void updateTime(float time) {
@@ -67,7 +69,7 @@ public abstract class Character : MonoBehaviour {
 		
 	}
 
-	void Move(Cell destiny) {
+	public void Move(Cell destiny) {
 		this.transform.position = destiny.transform.position + new Vector3 (0, 1, 1);
 		Vector3 tmp = this.transform.position;
 		tmp.z = tmp.y;
