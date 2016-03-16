@@ -31,7 +31,6 @@ namespace Assets
         }
 
 		public void BeginTurn() {
-			Debug.Log ("Queso");
 			foreach (Character c in characters) {
 				c.BeginTurn ();
 			}
