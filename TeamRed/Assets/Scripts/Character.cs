@@ -25,12 +25,13 @@ public abstract class Character : MonoBehaviour {
     public string characterInfoText = "";    
 	private SpriteRenderer sprite;
 	public Cell actualCell;
+    private SpriteRenderer hpUi;
 
     // Use this for initialization
     void Start () {
         characterInfoText = "";
 		sprite = GetComponent<SpriteRenderer> ();
-
+        hpUi = transform.Find("HP").GetComponent<SpriteRenderer>();
 		StartVariables ();
 	}
 
@@ -93,7 +94,8 @@ public abstract class Character : MonoBehaviour {
 			CharacterAttack (cell);
 			UpdateTime (costPerAction);
 			turnActions--;
-		}
+            hpUi.transform.localScale += new Vector3(0.1F, 0, 0);
+        }
 	}
 
 	// Update is called once per frame
@@ -104,16 +106,6 @@ public abstract class Character : MonoBehaviour {
 			turnsToSpawn = 2;
 		}
 	}
-
-
-    void OnGUI()
-
-    {
-        characterInfoText = "L: " + currentHealth.ToString() + "\n" + "M:";
-        Vector3 infoPosition = Camera.main.WorldToScreenPoint(transform.position);
-        GUI.Label(new Rect(infoPosition.x, (Screen.height - 0.5f), 100, 50), characterInfoText);
-
-    }
 
 	public bool CompareTo(Character other) {
 		if (other.GetType() == this.GetType())
