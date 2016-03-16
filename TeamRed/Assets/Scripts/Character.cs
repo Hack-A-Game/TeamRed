@@ -33,7 +33,7 @@ public abstract class Character : MonoBehaviour {
     public void Start () {
         characterInfoText = "";
 		sprite = gameObject.GetComponent<SpriteRenderer> ();
-        hpUi = transform.Find("HP").GetChild(1).GetComponent<SpriteRenderer>();
+        hpUi = transform.Find("HP").GetChild(0).GetComponent<SpriteRenderer>();
 	}
 
 	abstract public void CharacterAttack (Cell cell);
