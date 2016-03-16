@@ -6,7 +6,6 @@ using Assets;
 public abstract class Character : MonoBehaviour {
 
     public Player owner;
-	public string tag;
 
 	// Las que hay que implementar
     public int maxHealth;
@@ -72,7 +71,7 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	public bool CanMove(Cell cell) {
-		return CalculateMoveCost(cell) >= GameController.instance.currentTurnTime;
+		return CalculateMoveCost(cell) <= GameController.instance.currentTurnTime;
 	}
 
 	public bool CanAttack(Cell cell) {
@@ -80,7 +79,7 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	public void Move(Cell destiny) {
-		this.transform.position = destiny.transform.position + new Vector3 (0, 1, 1);
+		this.transform.position = destiny.transform.position + new Vector3 (0, 0.1f, 0);
 		Vector3 tmp = this.transform.position;
 		tmp.z = -tmp.y;
 		this.transform.position = tmp;
