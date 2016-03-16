@@ -68,6 +68,14 @@ public class GameController : MonoBehaviour
                 Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
                 if (this.interactWithCell(hitCell))
                 {
+                    if(actualPlayer.playerId == 1)
+                    {
+                        PlayerPrefs.SetInt("Winner", 2);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("Winner", 1);
+                    }
                     Application.LoadLevel(2);
                 }
                 

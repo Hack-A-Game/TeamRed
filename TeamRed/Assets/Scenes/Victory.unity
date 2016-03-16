@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b659b818605caf3408139b1a5ba33572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 21300000, guid: 06cc7816411b9f247b6f4f40fb3f4ce3, type: 3}
+  player2: {fileID: 21300000, guid: b030c23d8143603449e7fda89e46b510, type: 3}
+  image: {fileID: 1004003267}
 --- !u!1 &71309361
 GameObject:
   m_ObjectHideFlags: 0
