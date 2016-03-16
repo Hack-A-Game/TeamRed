@@ -26,7 +26,7 @@ public class Castle : Character {
 	// Update is called once per frame
 	void Update () {
         contador += Time.deltaTime;
-        if(contador > 20)
+        if(contador > 10)
         {
             RandomAttack();
             contador = 0;
@@ -36,8 +36,15 @@ public class Castle : Character {
     private void RandomAttack()
     {
         Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
+        SpawnBullet(cell.transform.position);
         CharacterAttack(cell);
         Debug.Log("Castillo ataca celda. x= " + cell.posX + "y= " + cell.posY);
+    }
+
+    public void SpawnBullet(Vector3 position){
+        GameObject bullet = Resources.Load("Bullet") as GameObject;
+        GameObject instance = (GameObject) GameObject.Instantiate(bullet, transform.position, transform.rotation);
+        instance.GetComponent<BulletBehavior>().position = position;
     }
     
     public void SpawnPlayer(Character character)
