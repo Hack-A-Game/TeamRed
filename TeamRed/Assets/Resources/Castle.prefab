@@ -54,9 +54,10 @@ MonoBehaviour:
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}
-  red: {fileID: 21300000, guid: da80b6d9ab86c474ca69d0518dbc8671, type: 3}
-  blue: {fileID: 21300000, guid: a6d97d0bd57067c42937305a73737e63, type: 3}
+  red: {fileID: 21300000, guid: a6d97d0bd57067c42937305a73737e63, type: 3}
+  blue: {fileID: 21300000, guid: da80b6d9ab86c474ca69d0518dbc8671, type: 3}
   contador: 0
+  adjacentCells: []
 --- !u!212 &21276960
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -97,12 +98,12 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: red
       value: 
-      objectReference: {fileID: 21300000, guid: da80b6d9ab86c474ca69d0518dbc8671,
+      objectReference: {fileID: 21300000, guid: a6d97d0bd57067c42937305a73737e63,
         type: 3}
     - target: {fileID: 0}
       propertyPath: blue
       value: 
-      objectReference: {fileID: 21300000, guid: a6d97d0bd57067c42937305a73737e63,
+      objectReference: {fileID: 21300000, guid: da80b6d9ab86c474ca69d0518dbc8671,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
