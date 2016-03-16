@@ -5,23 +5,30 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour {
 
 
-    public Text timeText;
-    public Text playerText;
+    public Text timeText1;
+    public Text timeText2;
+
     
 
 
     void Start () {
-        timeText.text = "";
-        playerText.text = " ";
+        timeText1.text = "";
+        timeText2.text = "";
 	
 	}
 	
 	// Update is called once per frame
 
 	void Update () {
-        playerText.text = "PLAYER  " + GameController.instance.actualPlayer.playerId.ToString();
-        //pointsText = "POINTS" + GameController.actualPlayer.points.toString();
-        timeText.text = "TIME: " + Mathf.Floor(GameController.instance.currentTurnTime).ToString();
+        if (GameController.instance.actualPlayer.playerId ==1)
+        {
+            timeText1.text = "TIME: " + Mathf.Floor(GameController.instance.currentTurnTime).ToString();
+        }
+        else
+        {
+            timeText2.text = "TIME: " + Mathf.Floor(GameController.instance.currentTurnTime).ToString();
+        }
+        
 	
 	}
 }
