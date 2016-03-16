@@ -61,7 +61,9 @@ public abstract class Character : MonoBehaviour {
 
 	void Move(Cell destiny) {
 		this.transform.position = destiny.transform.position + new Vector3 (0, 1, 1);
-		this.transform.position.z = this.transform.position.y;
+		Vector3 tmp = this.transform.position;
+		tmp.z = tmp.y;
+		this.transform.position = tmp;
 		// TODO: Actualizar la Cell con el chacho
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
