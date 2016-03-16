@@ -145,7 +145,7 @@ public class GameController : MonoBehaviour {
         gameObject.transform.position = new Vector3(player1.castleCells[0].transform.position.x, player1.castleCells[0].transform.position.y, -9.6f);
 
         GameObject gameObject2 = Instantiate(Resources.Load("Castle") as GameObject);
-        Castle castle2 = gameObject.GetComponent<Castle>();
+        Castle castle2 = gameObject2.GetComponent<Castle>();
         castle2.owner = player2;
 
         player2.castleCells = new List<Cell>();
