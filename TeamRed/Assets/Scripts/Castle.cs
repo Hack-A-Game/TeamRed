@@ -2,21 +2,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets;
+using System;
 
-public class Castle : MonoBehaviour {
+public class Castle : Character {
 
-    public Player owner;
+    public float contador;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         SpawnCharacters();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+        contador = 0;
+}
+
+// Update is called once per frame
+void Update () {
+        contador += Time.deltaTime;
+        if(contador > 12)
+        {
+            RandomAttack();
+            contador = 0;
+        }
 	}
 
+    private void RandomAttack()
+    {
+        //generar casilla aleatoria del otro lado
+        Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value*6), Mathf.RoundToInt(UnityEngine.Random.value*10)];
+        while (cell.hoverCharacter.owner.CompareTo(this.owner))
+        {
+            cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
+        }
+        CharacterAttack(cell);
+    }
+    
     public void SpawnPlayer(Character character)
     {
 		// Search nearby free cell
@@ -40,6 +58,27 @@ public class Castle : MonoBehaviour {
 		return null;
 	}
 
+    public override void StartVariables()
+    {
+        maxHealth = int.MaxValue;
+        currentHealth = maxHealth;
+        maxMove = 0;
+        maxAction = 0;
+        costPerAction = 0;
+        costPerMovement = 0;
+        damage = 50;
+        //attackRange = 10;
+}
+
+    public override void CharacterAttack(Cell cell)
+    {
+        cell.hoverCharacter.currentHealth -= damage;
+        foreach (Cell cell1 in GameController.instance.mapController.GetContiguousCells(cell))
+        {
+            if (cell1.hoverCharacter != null)
+                cell1.hoverCharacter.currentHealth -= damage/5;
+        }
+    }
     public void  SpawnCharacters()
     {
         //Spawn Archer
