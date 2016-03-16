@@ -56,6 +56,7 @@ public abstract class Character : MonoBehaviour {
 		turnMoves = maxMove;
 		turnActions = maxAction;
 		this.sprite.enabled = true;
+		this.hpUi.enabled = true;
 		castle.SpawnPlayer (this);
 	}
 
@@ -108,6 +109,7 @@ public abstract class Character : MonoBehaviour {
 	void Update () {
 		if (currentHealth <= 0 && turnsToSpawn == 0) {
 			this.sprite.enabled = false;
+			this.hpUi.enabled = false;
 			turnsToSpawn = 2;
 		}
 	}
