@@ -55,12 +55,12 @@ public class GameController : MonoBehaviour
         {
             ChangeTurn();
         }
-        /*if (Input.touchCount == 1 )
-        {*/
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            //var touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            var touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        /*if (Input.GetMouseButtonDown(0))
+        {*/
+            var touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            //var touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
             if (hit != null && hit.collider != null)
             {
