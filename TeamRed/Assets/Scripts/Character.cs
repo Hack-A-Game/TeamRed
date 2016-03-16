@@ -56,7 +56,7 @@ public abstract class Character : MonoBehaviour {
 		turnMoves = maxMove;
 		turnActions = maxAction;
 		this.sprite.enabled = true;
-		this.hpUi.enabled = true;
+		transform.Find("HP").localScale = new Vector3(1,1,1);
 		castle.SpawnPlayer (this);
 	}
 
@@ -101,7 +101,7 @@ public abstract class Character : MonoBehaviour {
 			CharacterAttack (cell);
 			UpdateTime (costPerAction);
 			turnActions--;
-			cell.hoverCharacter.hpUi.transform.localScale = new Vector3(((float) currentHealth)/maxHealth, 0, 0);
+			cell.hoverCharacter.hpUi.transform.localScale = new Vector3(((float) currentHealth * 0.3f)/maxHealth, 0.1f, 1);
         }
 	}
 
@@ -109,7 +109,7 @@ public abstract class Character : MonoBehaviour {
 	void Update () {
 		if (currentHealth <= 0 && turnsToSpawn == 0) {
 			this.sprite.enabled = false;
-			this.hpUi.enabled = false;
+			transform.Find("HP").localScale = new Vector3(0,0,0);
 			turnsToSpawn = 2;
 		}
 	}
