@@ -24,6 +24,7 @@ public class Castle : MonoBehaviour {
     }
 
 	private Cell searchFreeCell() {
-		
+		//TODO: Implement search algorithm
+		return null;
 	}
 }
