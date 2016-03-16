@@ -20,7 +20,7 @@ public class King : Character
         damage = 5;
     }
 
-    public override void characterAttack(Cell cell)
+    public override void CharacterAttack(Cell cell)
     {
         if (hasSword)
         {
@@ -32,10 +32,10 @@ public class King : Character
         }
         cell.hoverCharacter.currentHealth -= damage;
     }
-    public void getSword(Cell cell)
+    public void GetSword(Cell cell)
     {
         Excalibur sword = new Excalibur();
-        if (cell.hoverCharacter.compareTo(sword))
+        if (cell.hoverCharacter.CompareTo(sword))
             hasSword = true; //TODO eliminar espada
     }
 
