@@ -80,7 +80,7 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	public void Move(Cell destiny) {
-		this.transform.position = destiny.transform.position + new Vector3 (0, 1, 1);
+		this.transform.position = destiny.transform.position + new Vector3 (0, 0.1f, 0);
 		Vector3 tmp = this.transform.position;
 		tmp.z = -tmp.y;
 		this.transform.position = tmp;
