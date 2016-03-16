@@ -83,6 +83,17 @@ void Update () {
         cell.hoverCharacter = archer;
         archer.actualCell = cell;
 
+        if (archer.owner.playerId == 1)
+        {
+            Debug.Log("Red player");
+            archer.GetComponent<SpriteRenderer>().sprite = archer.red;
+        }
+        else
+        {
+            Debug.Log("Blue player");
+            archer.GetComponent<SpriteRenderer>().sprite = archer.blue;
+        }
+
         //Spawn Canoneer
         cell = SearchFreeCell();
         prefab = Resources.Load("Cannoneer") as GameObject;

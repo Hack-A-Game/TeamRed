@@ -5,8 +5,9 @@ using System;
 public class King : Character
 {
 
-    public bool hasSword;
-   
+   public bool hasSword;
+    public Sprite kingSwordBlue;
+    public Sprite kingSwordRed;
 
     public bool CanGetSword(Cell cell)
     {

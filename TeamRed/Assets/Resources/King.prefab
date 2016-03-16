@@ -140,7 +140,11 @@ MonoBehaviour:
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}
+  red: {fileID: 21300000, guid: 76ca96d84a5ed4341ad11320195ca599, type: 3}
+  blue: {fileID: 21300000, guid: 03b75a9d6bccd344bb69605dda27db32, type: 3}
   hasSword: 0
+  kingSwordBlue: {fileID: 21300000, guid: 6653b84b629f779498996bb5d0e1fcc8, type: 3}
+  kingSwordRed: {fileID: 21300000, guid: 0a508ead3077ae247b3d35d0e9d61d19, type: 3}
 --- !u!212 &21217474
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -242,6 +246,26 @@ Prefab:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 03b75a9d6bccd344bb69605dda27db32,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 21300000, guid: 76ca96d84a5ed4341ad11320195ca599,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: blue
+      value: 
+      objectReference: {fileID: 21300000, guid: 03b75a9d6bccd344bb69605dda27db32,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: kingSwordBlue
+      value: 
+      objectReference: {fileID: 21300000, guid: 6653b84b629f779498996bb5d0e1fcc8,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: kingSwordRed
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a508ead3077ae247b3d35d0e9d61d19,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

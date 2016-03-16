@@ -26,6 +26,9 @@ public abstract class Character : MonoBehaviour {
 	public Cell actualCell;
     private SpriteRenderer hpUi;
 
+    public Sprite red;
+    public Sprite blue;
+
     // Use this for initialization
     public void Start () {
         characterInfoText = "";
