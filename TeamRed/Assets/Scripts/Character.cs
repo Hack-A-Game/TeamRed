@@ -89,6 +89,7 @@ public abstract class Character : MonoBehaviour {
 		actualCell.hoverCharacter = null;
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
+		turnMoves--;
 	}
 
 	public void Attack(Cell cell) {
