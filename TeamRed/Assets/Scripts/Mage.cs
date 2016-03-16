@@ -5,7 +5,7 @@ using System;
 public class Mage : Character {
     public override void CharacterAttack(Cell cell)
     {
-        throw new NotImplementedException();
+        cell.hoverCharacter.currentHealth -= damage;
     }
 
     public override void StartVariables()

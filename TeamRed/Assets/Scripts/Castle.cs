@@ -6,24 +6,33 @@ using System;
 
 public class Castle : Character {
 
-    public Player owner;
+    public float contador;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //llamar RandomAttack() cada X segundos
-	
+    // Use this for initialization
+    void Start () {
+        SpawnCharacters();
+        contador = 0;
+}
+
+// Update is called once per frame
+void Update () {
+        contador += Time.deltaTime;
+        if(contador > 12)
+        {
+            RandomAttack();
+            contador = 0;
+        }
 	}
 
     private void RandomAttack()
     {
         //generar casilla aleatoria del otro lado
-        //cell = MapController.instance.map[,]
-        //CharacterAttack(cell);
+        Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value*6), Mathf.RoundToInt(UnityEngine.Random.value*10)];
+        while (cell.hoverCharacter.owner.CompareTo(this.owner))
+        {
+            cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
+        }
+        CharacterAttack(cell);
     }
     
     public void SpawnPlayer(Character character)
@@ -35,7 +44,7 @@ public class Castle : Character {
 
 	private Cell SearchFreeCell() {
 		Cell castleCell = owner.castleCell;
-		List<Cell> cells = GameController.instance.mapController.GetContiguousCells (castleCell);
+		List<Cell> cells = MapController.instance.GetContiguousCells (castleCell);
 		foreach (Cell cell in cells) {
 			if (cell.hoverCharacter == null) {
 				return cell;
@@ -58,6 +67,19 @@ public class Castle : Character {
 
     public override void CharacterAttack(Cell cell)
     {
-        throw new NotImplementedException();
+        cell.hoverCharacter.currentHealth -= damage;
+        foreach (Cell cell1 in GameController.instance.mapController.GetContiguousCells(cell))
+        {
+            if (cell1.hoverCharacter != null)
+                cell1.hoverCharacter.currentHealth -= damage;
+        }
+    }
+    public void  SpawnCharacters()
+    {
+        Cell cell = SearchFreeCell();
+        GameObject prefab = Resources.Load("Archer") as GameObject;
+        GameObject gameObject = (GameObject) GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
+        Archer archer = gameObject.GetComponent<Archer>();
+        cell.hoverCharacter = archer;
     }
 }
