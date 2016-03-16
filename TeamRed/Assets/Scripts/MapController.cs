@@ -51,7 +51,7 @@ public class MapController : MonoBehaviour
     Cell SpawnCell(int x, int y)
     {
         GameObject gameObject = Instantiate(Resources.Load("Cell") as GameObject);
-        gameObject.transform.position = new Vector3(x * _cellSpacing, y * _cellSpacing, -9.5f);
+        gameObject.transform.position = new Vector3(x * _cellSpacing, y * _cellSpacing, 0f);
         Cell cell = gameObject.GetComponent<Cell>();
         cell.SetPosition(x, y);
         return cell;
