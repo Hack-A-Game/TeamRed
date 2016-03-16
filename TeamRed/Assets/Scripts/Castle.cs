@@ -49,6 +49,7 @@ public class Castle : MonoBehaviour {
         Archer archer = gameObject.GetComponent<Archer>();
         archer.owner = owner;
         cell.hoverCharacter = archer;
+        archer.actualCell = cell;
 
         //Spawn Canoneer
         cell = SearchFreeCell();
@@ -57,6 +58,7 @@ public class Castle : MonoBehaviour {
         Cannoneer cannoneer = gameObject.GetComponent<Cannoneer>();
         cannoneer.owner = owner;
         cell.hoverCharacter = cannoneer;
+        cannoneer.actualCell = cell;
 
         //Spawn King
         cell = SearchFreeCell();
@@ -65,6 +67,7 @@ public class Castle : MonoBehaviour {
         King king = gameObject.GetComponent<King>();
         king.owner = owner;
         cell.hoverCharacter = king;
+        king.actualCell = cell;
 
         //Spawn Archer
         cell = SearchFreeCell();
@@ -73,5 +76,6 @@ public class Castle : MonoBehaviour {
         Mage mage = gameObject.GetComponent<Mage>();
         mage.owner = owner;
         cell.hoverCharacter = mage;
+        mage.actualCell = cell;
     }
 }
