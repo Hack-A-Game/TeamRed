@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour {
             //Debug.Log("User has  finger(s) touching the screen");
         }
     }
-    void decreaseTurnTime(float timeDecrease)
+    public void decreaseTurnTime(float timeDecrease)
     {
         currentTurnTime -= timeDecrease; //TODO modificar el contador aqui!!
     }

@@ -46,13 +46,17 @@ public abstract class Character : MonoBehaviour {
 		castle.SpawnPlayer (this, null);
 	}
 
-	void updateTime(float time) {
-		//TODO: Fill me
+	private void updateTime(float time) {
+		GameController.instance.decreaseTurnTime (time);
 	}
 
 	float calculateMoveCost(int x, int y) {
 		//TODO: FILLME
 		return costPerMovement * (Mathf.Abs(actualCell.posX - x) + Mathf.Abs(actualCell.posY - y));
+	}
+
+	void Move(int x, int y) {
+		
 	}
 
 	void Move(Cell destiny) {
