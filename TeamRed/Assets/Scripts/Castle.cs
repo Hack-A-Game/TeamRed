@@ -79,7 +79,7 @@ void Update () {
         foreach (Cell cell1 in GameController.instance.mapController.GetContiguousCells(cell))
         {
             if (cell1.hoverCharacter != null)
-                cell1.hoverCharacter.currentHealth -= damage/5;
+                cell1.hoverCharacter.currentHealth -= damage;
         }
     }
     public void  SpawnCharacters()
