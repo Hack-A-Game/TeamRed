@@ -21,7 +21,6 @@ public class Castle : Character {
 		}
 		SpawnCharacters();
 		contador = 0;
-		transform.Find ("HP").localScale = new Vector3 (0, 0, 0);
 	}
 
 	// Update is called once per frame
