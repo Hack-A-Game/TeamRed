@@ -16,12 +16,12 @@ public class Castle : Character {
 
 // Update is called once per frame
 void Update () {
-        contador += Time.deltaTime;
-        if(contador > 12)
-        {
-            RandomAttack();
-            contador = 0;
-        }
+        //contador += Time.deltaTime;
+        //if(contador > 12)
+        //{
+        //    RandomAttack();
+        //    contador = 0;
+        //}
 	}
 
     private void RandomAttack()
