@@ -26,7 +26,7 @@ public class Castle : Character {
 	// Update is called once per frame
 	void Update () {
         contador += Time.deltaTime;
-        if(contador > 12)
+        if(contador > 20)
         {
             RandomAttack();
             contador = 0;
@@ -64,7 +64,7 @@ public class Castle : Character {
         {
             //Debug.Log("Damage " + 30);//this.damage);
             //Debug.Log("currenthoveredhealth " + cell.hoverCharacter.currentHealth);
-            cell.hoverCharacter.currentHealth -= 30;//this.damage;
+            cell.hoverCharacter.currentHealth -= 15;//this.damage;
             //Debug.Log("nuevahealt" + cell.hoverCharacter.currentHealth);
 
         }
@@ -74,7 +74,7 @@ public class Castle : Character {
             if (cell1.hoverCharacter != null)
             {
                 //Debug.Log("celda contiguacon enemigo " + cell1);//this.damage);
-                cell1.hoverCharacter.currentHealth -= 10;
+                cell1.hoverCharacter.currentHealth -= 3;
             }
         }
     }
