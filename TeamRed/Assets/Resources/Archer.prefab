@@ -126,17 +126,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf7b278330d022479d19ee4ce15c99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 1
+  currentHealth: 1
   maxMove: 3
   maxAction: 1
   costPerAction: 1
-  costPerMovement: 3
+  costPerMovement: 1
   damage: 10
   attackRange: 5
   turnMoves: 1
   turnActions: 1
-  turnsToSpawn: 1
+  turnsToSpawn: 0
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}

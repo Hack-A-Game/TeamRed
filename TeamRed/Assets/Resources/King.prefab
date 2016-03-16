@@ -130,13 +130,13 @@ MonoBehaviour:
   currentHealth: 50
   maxMove: 1
   maxAction: 2
-  costPerAction: 4
-  costPerMovement: 2
+  costPerAction: 1
+  costPerMovement: 1
   damage: 5
   attackRange: 1
   turnMoves: 1
   turnActions: 1
-  turnsToSpawn: 1
+  turnsToSpawn: 0
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}

@@ -119,12 +119,12 @@ MonoBehaviour:
   maxMove: 3
   maxAction: 1
   costPerAction: 1
-  costPerMovement: 5
+  costPerMovement: 1
   damage: 15
   attackRange: 3
   turnMoves: 1
   turnActions: 1
-  turnsToSpawn: 1
+  turnsToSpawn: 0
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}
