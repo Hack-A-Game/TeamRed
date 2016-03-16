@@ -61,19 +61,19 @@ public class MapController : MonoBehaviour
     {
         List<Cell> contiguousCells = new List<Cell>();
 
-        //Top Left
+        //Bottom Left
         if(cell.posX - 1 >= 0 && cell.posY - 1 >= 0)
         {
             contiguousCells.Add(map[cell.posX - 1, cell.posY - 1]);
         }
 
-        //Top
+        //Bottom
         if (cell.posY - 1 >= 0)
         {
             contiguousCells.Add(map[cell.posX, cell.posY - 1]);
         }
 
-        //Top Right
+        //Bottom Right
         if (cell.posX + 1 < _mapWidth && cell.posY - 1 >= 0)
         {
             contiguousCells.Add(map[cell.posX + 1, cell.posY - 1]);
@@ -91,37 +91,22 @@ public class MapController : MonoBehaviour
             contiguousCells.Add(map[cell.posX + 1, cell.posY]);
         }
 
-        //Bottom Left
+        //Top Left
         if (cell.posX - 1 >= 0 && cell.posY + 1 < _mapHeight)
         {
             contiguousCells.Add(map[cell.posX - 1, cell.posY + 1]);
         }
 
-        //Bottom
+        //Top
         if (cell.posY + 1 < _mapHeight)
         {
             contiguousCells.Add(map[cell.posX, cell.posY + 1]);
         }
 
-        //Bottom Right
+        //Top Right
         if (cell.posX + 1 < _mapWidth && cell.posY + 1 < _mapHeight)
         {
             contiguousCells.Add(map[cell.posX + 1, cell.posY + 1]);
-        }
-
-        Cell cellToRemove = null;
-        foreach(Cell c in contiguousCells)
-        {
-            if(c == GameController.instance.player1.castleCells[0] || c == GameController.instance.player1.castleCells[1] ||
-                c == GameController.instance.player2.castleCells[0] || c == GameController.instance.player2.castleCells[1])
-            {
-                cellToRemove = c;
-            }
-        }
-
-        if(cellToRemove != null)
-        {
-            contiguousCells.Remove(cellToRemove);
         }
 
         return contiguousCells;
