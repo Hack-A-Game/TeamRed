@@ -7,15 +7,24 @@ using System;
 public class Castle : Character {
 
     public float contador;
-
+	public List<Cell> adjacentCells;
     // Use this for initialization
     void Start () {
         SpawnCharacters();
         contador = 0;
-}
+		adjacentCells = new List<Cell> ();
+		foreach(Cell castleCell in owner.castleCells)
+		{
+			List<Cell> tmp = MapController.instance.GetContiguousCells (castleCell);
+			foreach(Cell c in tmp) {
+				if (tmp.IndexOf(c) != 0)
+					adjacentCells.Add(c);
+			}
+		}
+	}
 
-// Update is called once per frame
-void Update () {
+	// Update is called once per frame
+	void Update () {
         //contador += Time.deltaTime;
         //if(contador > 12)
         //{
@@ -43,14 +52,7 @@ void Update () {
     }
 
 	private Cell SearchFreeCell() {
-        List<Cell> cells = new List<Cell>();
-        foreach(Cell castleCell in owner.castleCells)
-        {
-            foreach(Cell c in MapController.instance.GetContiguousCells(castleCell)){
-                cells.Add(c);
-            }
-        }
-		foreach (Cell cell in cells) {
+		foreach (Cell cell in adjacentCells) {
 			if (cell.hoverCharacter == null) {
 				return cell;
 			}
