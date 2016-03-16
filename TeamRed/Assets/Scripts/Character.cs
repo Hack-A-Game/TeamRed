@@ -21,6 +21,15 @@ public abstract class Character : MonoBehaviour {
 	public int turnsToSpawn = 0;
 	public bool isSpawning = false;
     public bool canMove = true;
+<<<<<<< HEAD
+    public string characterInfoText = "";
+    private Rect characterInfoRect = new Rect(95, 160, 175, 40);
+
+    // Use this for initialization
+    void Start () {
+        characterInfoText = "";
+	
+=======
 	private SpriteRenderer sprite;
 	private Cell actualCell;
 
@@ -68,6 +77,7 @@ public abstract class Character : MonoBehaviour {
 		this.transform.position = tmp;
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
+>>>>>>> 3df69733facbf87a3c0c6a7115eabad039caea42
 	}
 
 	void Attack(Character enemy) {
@@ -87,5 +97,20 @@ public abstract class Character : MonoBehaviour {
 		}
 	}
 
+<<<<<<< HEAD
+    void OnGUI()
+
+    {
+        Vector3 pos = characterInfoRect.center;
+        pos.y += characterInfoRect.height / 2.0;  // Position at top of rect
+        pos.y = Screen.height - pos.y;  // Convert from GUI to Screen
+        pos.z = someDist;  // Distance in front of the camera
+        pos = Camera.main.ScreenToWorldPoint(pos);
+        characterInfoText = "L: " + health.ToString() + "\n" + "M:";
+        GUI.Label(characterInfoRect, characterInfoText);
+
+    }
+=======
 	//TODO: EVERYTHING
+>>>>>>> 3df69733facbf87a3c0c6a7115eabad039caea42
 }
