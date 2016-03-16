@@ -87,7 +87,14 @@ public class GameController : MonoBehaviour {
         } else {
             if (c.hoverCharacter == this.selectedCharacter)
             {
-                this.selectedCharacter = null; // Deselect character
+                if (this.selectedCharacter == null)
+                {
+                    this.selectedCharacter = c.hoverCharacter;
+                }
+                else
+                {
+                    this.selectedCharacter = null;
+                }
             } else
             {
                 if (c.hoverCharacter.owner == actualPlayer)
@@ -100,11 +107,20 @@ public class GameController : MonoBehaviour {
                         this.selectedCharacter.Attack(c);
                     } else
                     {
-                        // TODO maybe?!
+                        // TODO put something on GUI if cannot
                     }
                 } else
                 {
-                    // TODO put excalibur logic here
+                    if (this.selectedCharacter is King){
+                        King k = (King)this.selectedCharacter;
+                        if (k.CanGetSword(c))
+                        {
+                            k.GetSword(c);
+                        } else
+                        {
+                            //TODO put something on GUI if cannot
+                        }
+                    }
                 }
             }
         }
