@@ -20,11 +20,11 @@ public class Castle : MonoBehaviour {
     public void SpawnPlayer(Character character)
     {
 		// Search nearby free cell
-		Cell freeCell = searchFreeCell();
+		Cell freeCell = SearchFreeCell();
 		character.Move (freeCell);
     }
 
-	private Cell searchFreeCell() {
+	private Cell SearchFreeCell() {
 		Cell castleCell = owner.castleCell;
 		List<Cell> cells = GameController.instance.mapController.GetContiguousCells (castleCell);
 		foreach (Cell cell in cells) {
