@@ -25,8 +25,13 @@ public class Castle : MonoBehaviour {
     }
 
 	private Cell SearchFreeCell() {
-		Cell castleCell = owner.castleCell;
-		List<Cell> cells = MapController.instance.GetContiguousCells (castleCell);
+        List<Cell> cells = new List<Cell>();
+        foreach(Cell castleCell in owner.castleCells)
+        {
+            foreach(Cell c in MapController.instance.GetContiguousCells(castleCell)){
+                cells.Add(c);
+            }
+        }
 		foreach (Cell cell in cells) {
 			if (cell.hoverCharacter == null) {
 				return cell;
@@ -41,6 +46,7 @@ public class Castle : MonoBehaviour {
         GameObject prefab = Resources.Load("Archer") as GameObject;
         GameObject gameObject = (GameObject) GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
         Archer archer = gameObject.GetComponent<Archer>();
+        archer.owner = GameController.instance.player1;
         cell.hoverCharacter = archer;
     }
 }
