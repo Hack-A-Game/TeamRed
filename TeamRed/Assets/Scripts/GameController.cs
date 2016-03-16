@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
         }
         currentTurnTime = TURN_TIME;
         selectedCharacter = null;
+		actualPlayer.BeginTurn ();
     }
     // Use this for initialization
     void Start()

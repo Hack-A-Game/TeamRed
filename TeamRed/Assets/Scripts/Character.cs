@@ -32,18 +32,17 @@ public abstract class Character : MonoBehaviour {
     // Use this for initialization
     public void Start () {
         characterInfoText = "";
-		sprite = GetComponent<SpriteRenderer> ();
+		sprite = gameObject.GetComponent<SpriteRenderer> ();
         hpUi = transform.Find("HP").GetChild(1).GetComponent<SpriteRenderer>();
 	}
 
 	abstract public void CharacterAttack (Cell cell);
 
-	void BeginTurn() {
-		if (isSpawning) {
+	public void BeginTurn() {
+		if (turnsToSpawn > 0) {
 			turnsToSpawn--;
 			if (turnsToSpawn == 0) {
 				Spawn ();
-				isSpawning = false;
 			}
 		}
 		turnMoves = maxMove;
@@ -107,9 +106,9 @@ public abstract class Character : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (currentHealth <= 0 && !isSpawning) {
-			isSpawning = true;
-			sprite.enabled = false;
+		if (currentHealth <= 0) {
+			Debug.Log ("ded");
+			this.sprite.enabled = false;
 			turnsToSpawn = 2;
 		}
 	}
