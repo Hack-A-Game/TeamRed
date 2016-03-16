@@ -16,12 +16,12 @@ public class Castle : Character {
 
 // Update is called once per frame
 void Update () {
-        contador += Time.deltaTime;
-        if(contador > 12)
-        {
-            RandomAttack();
-            contador = 0;
-        }
+        //contador += Time.deltaTime;
+        //if(contador > 12)
+        //{
+        //    RandomAttack();
+        //    contador = 0;
+        //}
 	}
 
     private void RandomAttack()
@@ -72,7 +72,10 @@ void Update () {
 
     public override void CharacterAttack(Cell cell)
     {
-        cell.hoverCharacter.currentHealth -= damage;
+        if (cell.hoverCharacter != null)
+        {
+            cell.hoverCharacter.currentHealth -= damage;
+        }
         foreach (Cell cell1 in GameController.instance.mapController.GetContiguousCells(cell))
         {
             if (cell1.hoverCharacter != null)
