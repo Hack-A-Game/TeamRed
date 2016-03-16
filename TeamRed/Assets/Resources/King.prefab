@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 50
-  maxMove: 1
+  maxMove: 2
   maxAction: 2
   costPerAction: 1
   costPerMovement: 1
