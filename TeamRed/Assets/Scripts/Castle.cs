@@ -43,8 +43,13 @@ void Update () {
     }
 
 	private Cell SearchFreeCell() {
-		Cell castleCell = owner.castleCell;
-		List<Cell> cells = MapController.instance.GetContiguousCells (castleCell);
+        List<Cell> cells = new List<Cell>();
+        foreach(Cell castleCell in owner.castleCells)
+        {
+            foreach(Cell c in MapController.instance.GetContiguousCells(castleCell)){
+                cells.Add(c);
+            }
+        }
 		foreach (Cell cell in cells) {
 			if (cell.hoverCharacter == null) {
 				return cell;
@@ -76,10 +81,40 @@ void Update () {
     }
     public void  SpawnCharacters()
     {
+        //Spawn Archer
         Cell cell = SearchFreeCell();
         GameObject prefab = Resources.Load("Archer") as GameObject;
         GameObject gameObject = (GameObject) GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
         Archer archer = gameObject.GetComponent<Archer>();
+        archer.owner = owner;
         cell.hoverCharacter = archer;
+        archer.actualCell = cell;
+
+        //Spawn Canoneer
+        cell = SearchFreeCell();
+        prefab = Resources.Load("Cannoneer") as GameObject;
+        gameObject = (GameObject)GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
+        Cannoneer cannoneer = gameObject.GetComponent<Cannoneer>();
+        cannoneer.owner = owner;
+        cell.hoverCharacter = cannoneer;
+        cannoneer.actualCell = cell;
+
+        //Spawn King
+        cell = SearchFreeCell();
+        prefab = Resources.Load("King") as GameObject;
+        gameObject = (GameObject)GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
+        King king = gameObject.GetComponent<King>();
+        king.owner = owner;
+        cell.hoverCharacter = king;
+        king.actualCell = cell;
+
+        //Spawn Archer
+        cell = SearchFreeCell();
+        prefab = Resources.Load("Mage") as GameObject;
+        gameObject = (GameObject)GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
+        Mage mage = gameObject.GetComponent<Mage>();
+        mage.owner = owner;
+        cell.hoverCharacter = mage;
+        mage.actualCell = cell;
     }
 }

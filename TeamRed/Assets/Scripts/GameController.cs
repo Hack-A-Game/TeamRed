@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using Assets;
 
 public class GameController : MonoBehaviour {
@@ -137,10 +137,22 @@ public class GameController : MonoBehaviour {
         GameObject gameObject = Instantiate(Resources.Load("Castle") as GameObject);
         Castle castle = gameObject.GetComponent<Castle>();
         castle.owner = player1;
-        Cell cell = MapController.instance.map[0, 0];
+
+        player1.castleCells = new List<Cell>();       
         player1.castle = castle;
-        player1.castleCell = cell;
-        gameObject.transform.position = new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f);
+        player1.castleCells.Add(MapController.instance.map[0, 0]);
+        player1.castleCells.Add(MapController.instance.map[1, 0]);
+        gameObject.transform.position = new Vector3(player1.castleCells[0].transform.position.x, player1.castleCells[0].transform.position.y, -9.6f);
+
+        GameObject gameObject2 = Instantiate(Resources.Load("Castle") as GameObject);
+        Castle castle2 = gameObject2.GetComponent<Castle>();
+        castle2.owner = player2;
+
+        player2.castleCells = new List<Cell>();
+        player2.castle = castle2;
+        player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 1, MapController.instance._mapHeight - 1]);
+        player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 2  , MapController.instance._mapHeight - 1]);
+        gameObject.transform.position = new Vector3(player2.castleCells[0].transform.position.x, player2.castleCells[0].transform.position.y, -9.6f);
 
     }
 }

@@ -7,12 +7,14 @@ public class MapController : MonoBehaviour
     public static MapController instance;
     public Cell[,] map;
     public Vector3 mapOrigin;
-    private int _mapWidth = 7;
-    private int _mapHeight = 11;
+    public int _mapWidth = 7;
+    public int _mapHeight = 11;
     private float _cellSpacing = 0.5f;
 
     void Awake()
     {
+        _mapWidth = 7;
+        _mapHeight = 11;
         if (instance == null)
         {
             instance = this;
@@ -49,7 +51,7 @@ public class MapController : MonoBehaviour
     Cell SpawnCell(int x, int y)
     {
         GameObject gameObject = Instantiate(Resources.Load("Cell") as GameObject);
-        gameObject.transform.position = new Vector3(x * _cellSpacing, y * _cellSpacing, -9.5f);
+        gameObject.transform.position = new Vector3(x * _cellSpacing, y * _cellSpacing, 0f);
         Cell cell = gameObject.GetComponent<Cell>();
         cell.SetPosition(x, y);
         return cell;
@@ -105,6 +107,21 @@ public class MapController : MonoBehaviour
         if (cell.posX + 1 < _mapWidth && cell.posY + 1 < _mapHeight)
         {
             contiguousCells.Add(map[cell.posX + 1, cell.posY + 1]);
+        }
+
+        Cell cellToRemove = null;
+        foreach(Cell c in contiguousCells)
+        {
+            if(c == GameController.instance.player1.castleCells[0] || c == GameController.instance.player1.castleCells[1] ||
+                c == GameController.instance.player2.castleCells[0] || c == GameController.instance.player2.castleCells[1])
+            {
+                cellToRemove = c;
+            }
+        }
+
+        if(cellToRemove != null)
+        {
+            contiguousCells.Remove(cellToRemove);
         }
 
         return contiguousCells;
