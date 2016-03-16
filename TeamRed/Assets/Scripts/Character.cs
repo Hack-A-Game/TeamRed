@@ -22,16 +22,16 @@ public abstract class Character : MonoBehaviour {
 	public int turnsToSpawn = 0;
 	public bool isSpawning = false;
     public bool canMove = true;
-    public string characterInfoText = "";
-    private Rect characterInfoRect = new Rect(95, 160, 175, 40);
-
+    public string characterInfoText = "";    
 	private SpriteRenderer sprite;
 	private Cell actualCell;
+
 
     // Use this for initialization
     void Start () {
         characterInfoText = "";
 		sprite = GetComponent<SpriteRenderer> ();
+
 		startVariables ();
 	}
 
@@ -65,9 +65,7 @@ public abstract class Character : MonoBehaviour {
 		return costPerMovement * (Mathf.Abs(actualCell.posX - x) + Mathf.Abs(actualCell.posY - y));
 	}
 
-	void Move(int x, int y) {
-		
-	}
+
 
 	public void Move(Cell destiny) {
 		this.transform.position = destiny.transform.position + new Vector3 (0, 1, 1);
@@ -76,6 +74,7 @@ public abstract class Character : MonoBehaviour {
 		this.transform.position = tmp;
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
+
 	}
 
 	void Attack(Character enemy) {
@@ -95,17 +94,16 @@ public abstract class Character : MonoBehaviour {
 		}
 	}
 
+
     void OnGUI()
 
     {
-        Vector3 pos = characterInfoRect.center;
-        pos.y += characterInfoRect.height / 2.0;  // Position at top of rect
-        pos.y = Screen.height - pos.y;  // Convert from GUI to Screen
-        pos.z = someDist;  // Distance in front of the camera
-        pos = Camera.main.ScreenToWorldPoint(pos);
-        characterInfoText = "L: " + health.ToString() + "\n" + "M:";
-        GUI.Label(characterInfoRect, characterInfoText);
+        characterInfoText = "L: " + currentHealth.ToString() + "\n" + "M:";
+      
+
+        Vector3 infoPosition = Camera.main.WorldToScreenPoint(transform.position);
+        GUI.Label(new Rect(infoPosition.x, (Screen.height - 0.5f), 100, 50), characterInfoText);
 
     }
-	//TODO: EVERYTHING
+
 }
