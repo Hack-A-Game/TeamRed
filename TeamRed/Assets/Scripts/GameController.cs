@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
     {
         selectedCharacter = null;
         SpawnCastles();
+        SpawnExcalibur();
     }
 
     // Update is called once per frame
@@ -125,6 +126,17 @@ public class GameController : MonoBehaviour
     public void DecreaseTurnTime(float timeDecrease)
     {
         currentTurnTime -= timeDecrease; //TODO modificar el contador aqui!!
+    }
+
+    public void SpawnExcalibur()
+    {
+        GameObject gameObject = Instantiate(Resources.Load("Excalibur") as GameObject);
+        Excalibur excalibur = gameObject.GetComponent<Excalibur>();
+        excalibur.owner = null;
+        MapController.instance.map[3, 5].hoverCharacter = excalibur;
+        excalibur.actualCell = MapController.instance.map[3, 5];
+        gameObject.transform.position = new Vector3(player1.castleCells[0].transform.position.x, player1.castleCells[0].transform.position.y, -9.6f);
+        excalibur.Move(excalibur.actualCell);
     }
 
     public void SpawnCastles()
