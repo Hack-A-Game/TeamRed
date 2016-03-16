@@ -99,8 +99,6 @@ public abstract class Character : MonoBehaviour {
 
     {
         characterInfoText = "L: " + currentHealth.ToString() + "\n" + "M:";
-      
-
         Vector3 infoPosition = Camera.main.WorldToScreenPoint(transform.position);
         GUI.Label(new Rect(infoPosition.x, (Screen.height - 0.5f), 100, 50), characterInfoText);
 
