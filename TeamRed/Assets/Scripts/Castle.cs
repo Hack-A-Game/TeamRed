@@ -72,7 +72,10 @@ void Update () {
 
     public override void CharacterAttack(Cell cell)
     {
-        cell.hoverCharacter.currentHealth -= damage;
+        if (cell.hoverCharacter != null)
+        {
+            cell.hoverCharacter.currentHealth -= damage;
+        }
         foreach (Cell cell1 in GameController.instance.mapController.GetContiguousCells(cell))
         {
             if (cell1.hoverCharacter != null)
