@@ -83,7 +83,7 @@ public class Castle : Character {
             cell.hoverCharacter.currentHealth -= 15;//this.damage;
             //Debug.Log("nuevahealt" + cell.hoverCharacter.currentHealth);
 			if (cell.hoverCharacter is King && cell.hoverCharacter.currentHealth <= 0) {
-				GameController.instance.isWin = true;
+				GameController.instance.isKingDead= true;
 			}
         }
 
@@ -95,7 +95,7 @@ public class Castle : Character {
                 cell1.hoverCharacter.currentHealth -= 3;
             }
 			if (cell1.hoverCharacter is King && cell1.hoverCharacter.currentHealth <= 0) {
-				GameController.instance.isWin = true;
+				GameController.instance.isKingDead = true;
 			}
         }
     }
