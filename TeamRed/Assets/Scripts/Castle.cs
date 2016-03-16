@@ -42,11 +42,36 @@ public class Castle : MonoBehaviour {
 
     public void  SpawnCharacters()
     {
+        //Spawn Archer
         Cell cell = SearchFreeCell();
         GameObject prefab = Resources.Load("Archer") as GameObject;
         GameObject gameObject = (GameObject) GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
         Archer archer = gameObject.GetComponent<Archer>();
-        archer.owner = GameController.instance.player1;
+        archer.owner = owner;
         cell.hoverCharacter = archer;
+
+        //Spawn Canoneer
+        cell = SearchFreeCell();
+        prefab = Resources.Load("Cannoneer") as GameObject;
+        gameObject = (GameObject)GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
+        Cannoneer cannoneer = gameObject.GetComponent<Cannoneer>();
+        cannoneer.owner = owner;
+        cell.hoverCharacter = cannoneer;
+
+        //Spawn King
+        cell = SearchFreeCell();
+        prefab = Resources.Load("King") as GameObject;
+        gameObject = (GameObject)GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
+        King king = gameObject.GetComponent<King>();
+        king.owner = owner;
+        cell.hoverCharacter = king;
+
+        //Spawn Archer
+        cell = SearchFreeCell();
+        prefab = Resources.Load("Mage") as GameObject;
+        gameObject = (GameObject)GameObject.Instantiate(prefab, new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f), transform.rotation);
+        Mage mage = gameObject.GetComponent<Mage>();
+        mage.owner = owner;
+        cell.hoverCharacter = mage;
     }
 }
