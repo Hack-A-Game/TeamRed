@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour {
             //Don't do anything
         }
     }
-    void decreaseTurnTime(float timeDecrease)
+    public void decreaseTurnTime(float timeDecrease)
     {
         currentTurnTime -= timeDecrease; //TODO modificar el contador aqui!!
     }
