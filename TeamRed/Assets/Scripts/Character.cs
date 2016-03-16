@@ -12,10 +12,11 @@ public abstract class Character : MonoBehaviour {
     public int costPerAction;
     public int costPerMovement;
     public bool canMove = true;
-
+    public string characterInfoText = "";
 
 	// Use this for initialization
 	void Start () {
+        characterInfoText = "";
 	
 	}
 	
@@ -23,4 +24,12 @@ public abstract class Character : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void OnGUI()
+
+    {
+        characterInfoText = "L: " + health.ToString() + "\n" + "M:";
+        GUI.Label(new Rect(25, 25, 100, 30), characterInfoText);
+
+    }
 }
