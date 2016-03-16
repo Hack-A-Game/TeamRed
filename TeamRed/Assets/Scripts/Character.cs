@@ -47,6 +47,7 @@ public abstract class Character : MonoBehaviour {
 		}
 		turnMoves = maxMove;
 		turnActions = maxAction;
+       // hpUi.transform.localScale(new Vector3(1, 0, 0));
 	}
 
 	void Spawn() {

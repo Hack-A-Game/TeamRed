@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using Assets;
 
 public class GameController : MonoBehaviour {
@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         selectedCharacter = null;
+        SpawnCastles();
     }
 	
 	// Update is called once per frame
@@ -87,7 +88,14 @@ public class GameController : MonoBehaviour {
         } else {
             if (c.hoverCharacter == this.selectedCharacter)
             {
-                this.selectedCharacter = null; // Deselect character
+                if (this.selectedCharacter == null)
+                {
+                    this.selectedCharacter = c.hoverCharacter;
+                }
+                else
+                {
+                    this.selectedCharacter = null;
+                }
             } else
             {
                 if (c.hoverCharacter.owner == actualPlayer)
@@ -100,11 +108,20 @@ public class GameController : MonoBehaviour {
                         this.selectedCharacter.Attack(c);
                     } else
                     {
-                        // TODO maybe?!
+                        // TODO put something on GUI if cannot
                     }
                 } else
                 {
-                    // TODO put excalibur logic here
+                    if (this.selectedCharacter is King){
+                        King k = (King)this.selectedCharacter;
+                        if (k.CanGetSword(c))
+                        {
+                            k.GetSword(c);
+                        } else
+                        {
+                            //TODO put something on GUI if cannot
+                        }
+                    }
                 }
             }
         }
@@ -113,5 +130,29 @@ public class GameController : MonoBehaviour {
     public void DecreaseTurnTime(float timeDecrease)
     {
         currentTurnTime -= timeDecrease; //TODO modificar el contador aqui!!
+    }
+
+    public void SpawnCastles()
+    {
+        GameObject gameObject = Instantiate(Resources.Load("Castle") as GameObject);
+        Castle castle = gameObject.GetComponent<Castle>();
+        castle.owner = player1;
+
+        player1.castleCells = new List<Cell>();       
+        player1.castle = castle;
+        player1.castleCells.Add(MapController.instance.map[0, 0]);
+        player1.castleCells.Add(MapController.instance.map[1, 0]);
+        gameObject.transform.position = new Vector3(player1.castleCells[0].transform.position.x, player1.castleCells[0].transform.position.y, -9.6f);
+
+        GameObject gameObject2 = Instantiate(Resources.Load("Castle") as GameObject);
+        Castle castle2 = gameObject2.GetComponent<Castle>();
+        castle2.owner = player2;
+
+        player2.castleCells = new List<Cell>();
+        player2.castle = castle2;
+        player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 1, MapController.instance._mapHeight - 1]);
+        player2.castleCells.Add(MapController.instance.map[MapController.instance._mapWidth - 2  , MapController.instance._mapHeight - 1]);
+        gameObject.transform.position = new Vector3(player2.castleCells[0].transform.position.x, player2.castleCells[0].transform.position.y, -9.6f);
+
     }
 }

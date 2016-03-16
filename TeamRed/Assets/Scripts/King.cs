@@ -20,27 +20,28 @@ public class King : Character
         damage = 5;
     }
 
+    public bool CanGetSword(Cell cell)
+    {
+        return ManhattanDistance(cell) == 1;
+    }
+
     public override void CharacterAttack(Cell cell)
     {
+        int currentdmg;
         if (hasSword)
         {
-            damage = 10;
+            currentdmg = damage*2;
         }
         else
         {
-            damage = 5;
+            currentdmg = damage;
         }
-        cell.hoverCharacter.currentHealth -= damage;
+        cell.hoverCharacter.currentHealth -= currentdmg;
     }
+
     public void GetSword(Cell cell)
     {
-        Excalibur sword = new Excalibur();
-        if (cell.hoverCharacter.CompareTo(sword))
-        {
-            cell.hoverCharacter.gameObject.SetActive(false);
-            hasSword = true;
-        }
-
+        hasSword = true;
     }
 
     // Use this for initialization

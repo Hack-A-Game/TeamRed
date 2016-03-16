@@ -9,11 +9,14 @@ namespace Assets
     public class Player
     {
         public int playerId;
-        List<Character> characters;
+        public List<Character> characters;
 		public Castle castle;
+        public List<Cell> castleCells;
+
         public Player (int id)
         {
             playerId = id;
+            characters = new List<Character>();
         }
 
         public bool CompareTo(Player other)

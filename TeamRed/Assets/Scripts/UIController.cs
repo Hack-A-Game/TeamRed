@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+
 	void Update () {
         playerText.text = "PLAYER  "+ GameController.instance.actualPlayer.playerId.ToString();
         //pointsText = "POINTS" + GameController.actualPlayer.points.toString();
