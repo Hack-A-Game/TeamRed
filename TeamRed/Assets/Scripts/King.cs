@@ -25,6 +25,7 @@ public class King : Character
         {
             currentdmg = damage;
         }
+		Debug.Log ("Hit: " + damage);
         cell.hoverCharacter.currentHealth -= currentdmg;
     }
 
