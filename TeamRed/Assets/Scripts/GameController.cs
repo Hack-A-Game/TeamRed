@@ -17,8 +17,11 @@ public class GameController : MonoBehaviour
     public float currentTurnTime;
     public const float TURN_TIME = 30;
     public bool isKingDead = false;
+    public AudioSource audioSource;
 
     private float maxy, miny;
+
+    AudioSource audio;
 
     void Awake()
     {
@@ -32,6 +35,7 @@ public class GameController : MonoBehaviour
         actualPlayer = player1; //TODO hacer aleatorio
         player1UI.enabled = true;
         player2UI.enabled = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     //Cambia actualPlayer y reseta el contador de tiempo
@@ -52,6 +56,7 @@ public class GameController : MonoBehaviour
 		actualPlayer.BeginTurn ();
 		currentTurnTime = TURN_TIME;
 		selectedCharacter = null;
+        audioSource.PlayOneShot(audioSource.clip);
     }
     // Use this for initialization
     void Start()

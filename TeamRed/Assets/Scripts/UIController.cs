@@ -8,8 +8,6 @@ public class UIController : MonoBehaviour {
     public Text timeText1;
     public Text timeText2;
 
-    
-
 
     void Start () {
         timeText1.text = "";
