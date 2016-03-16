@@ -6,7 +6,8 @@ using Assets;
 public abstract class Character : MonoBehaviour {
 
     public Player owner;
-    public int health;
+    public int maxHealth;
+	public int currentHealth;
     public int maxMove;
     public int maxAction;
 	public int turnMoves;
@@ -64,7 +65,7 @@ public abstract class Character : MonoBehaviour {
 
 	void Attack(Character enemy) {
 		if (turnActions > 0) {
-			enemy.health -= damage;
+			enemy.currentHealth -= damage;
 			updateTime (costPerAction);
 			turnActions--;
 		}
@@ -72,7 +73,7 @@ public abstract class Character : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (health <= 0 && !isSpawning) {
+		if (currentHealth <= 0 && !isSpawning) {
 			isSpawning = true;
 			sprite.enabled = false;
 			turnsToSpawn = 2;
