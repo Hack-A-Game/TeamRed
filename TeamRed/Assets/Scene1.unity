@@ -249,7 +249,6 @@ GameObject:
   - 223: {fileID: 1374942787}
   - 114: {fileID: 1374942786}
   - 114: {fileID: 1374942785}
-  - 114: {fileID: 1374942784}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -257,22 +256,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1374942784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1374942783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5fe75b99bf239f489ea03187affe9c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
-  pointsText: {fileID: 0}
-  playerText: {fileID: 0}
-  remainingMovementsText: {fileID: 0}
-  liveText: {fileID: 0}
 --- !u!114 &1374942785
 MonoBehaviour:
   m_ObjectHideFlags: 0
