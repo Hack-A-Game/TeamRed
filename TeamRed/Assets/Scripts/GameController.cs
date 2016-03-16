@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour {
     public Player player2;
     public Player actualPlayer;
     public MapController mapController;
+    public Character selectedCharacter;
     public float currentTurnTime;
     public const float TURN_TIME=30;
 
@@ -36,15 +37,16 @@ public class GameController : MonoBehaviour {
             actualPlayer = player1;
         }
         currentTurnTime = TURN_TIME;
+        selectedCharacter = null;
     }
 	// Use this for initialization
 	void Start () {
-        
-	}
+        selectedCharacter = null;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		decreaseTurnTime(Time.deltaTime); //Decremento por fotograma
+		DecreaseTurnTime(Time.deltaTime); //Decremento por fotograma
         if (currentTurnTime <= 0)
         {
             ChangeTurn();
@@ -52,14 +54,14 @@ public class GameController : MonoBehaviour {
         /*if (Input.touchCount == 1 )
         {*/
         if (Input.GetMouseButtonDown(0)) {
-
-            //var touchPosition = Input.GetTouch(0).position;
+            //var touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             var touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
                 if (hit != null && hit.collider != null)
                 {
                     Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
-                    Destroy(hitCell.gameObject); // TODO Take this out, just for trials
+                    this.interactWithCell(hitCell);
+                    //Destroy(hitCell.gameObject); // TODO Take this out, just for trials
                 }
         }
         else
@@ -67,7 +69,48 @@ public class GameController : MonoBehaviour {
             //Don't do anything
         }
     }
-    public void decreaseTurnTime(float timeDecrease)
+
+    public void interactWithCell(Cell c)
+    {
+        if (c.hoverCharacter == null)
+        {
+            if (this.selectedCharacter != null)
+            {
+                if (this.selectedCharacter.CanMove(c))
+                {
+                    this.selectedCharacter.Move(c);
+                } else
+                {
+                    // TODO do something if cannot move on GUI
+                }
+            }
+        } else {
+            if (c.hoverCharacter == this.selectedCharacter)
+            {
+                this.selectedCharacter = null; // Deselect character
+            } else
+            {
+                if (c.hoverCharacter.owner == actualPlayer)
+                {
+                    //TODO Put buffs here
+                } else if (c.hoverCharacter.owner != null) // if it is not the excalibur
+                {
+                    if (this.selectedCharacter.CanAttack(c))
+                    {
+                        this.selectedCharacter.Attack(c);
+                    } else
+                    {
+                        // TODO maybe?!
+                    }
+                } else
+                {
+                    // TODO put excalibur logic here
+                }
+            }
+        }
+    }
+
+    public void DecreaseTurnTime(float timeDecrease)
     {
         currentTurnTime -= timeDecrease; //TODO modificar el contador aqui!!
     }
