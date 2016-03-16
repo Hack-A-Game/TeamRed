@@ -43,7 +43,7 @@ public class Castle : Character {
     public void SpawnPlayer(Character character)
     {
 		// Search nearby free cell
-		Cell freeCell = SearchFreeCell();
+		Cell freeCell = SearchFreeCell(); 
 		character.Move (freeCell);
     }
 
