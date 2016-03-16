@@ -66,13 +66,16 @@ public class GameController : MonoBehaviour
             if (hit != null && hit.collider != null)
             {
                 Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
-                this.interactWithCell(hitCell);
-                //Destroy(hitCell.gameObject); // TODO Take this out, just for trials
+                if (this.interactWithCell(hitCell))
+                {
+                    Application.LoadLevel(2);
+                }
+                
             }
         }
     }
 
-    public void interactWithCell(Cell c)
+    public bool interactWithCell(Cell c)
     {
         //Debug.Log("Han intentado interactuar conmigo");
         if (this.selectedCharacter == null)
@@ -107,8 +110,13 @@ public class GameController : MonoBehaviour
                         {
                             Debug.Log("El rey cogió el excalibur");
                             k.GetSword(c);
+                            return true;
                         }
                     }
+                }
+                else if (c.hoverCharacter.owner == actualPlayer)
+                {
+                    this.selectedCharacter = c.hoverCharacter;
                 }
                 else if (c.hoverCharacter.owner != actualPlayer)
                 {
@@ -117,10 +125,15 @@ public class GameController : MonoBehaviour
                     {
                         Debug.Log("He atacado!");
                         this.selectedCharacter.Attack(c);
+                        if (c.hoverCharacter.currentHealth <= 0)
+                        {
+                            return true;
+                        }
                     }
                 }
             }
         }
+        return false;
     }
 
     public void DecreaseTurnTime(float timeDecrease)
