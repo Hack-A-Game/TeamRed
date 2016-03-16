@@ -11,6 +11,7 @@ namespace Assets
         public int playerId;
         List<Character> characters;
 		public Castle castle;
+		public Cell castleCell;
         public Player (int id)
         {
             playerId = id;

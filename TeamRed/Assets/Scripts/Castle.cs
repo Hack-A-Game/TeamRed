@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Assets;
 
 public class Castle : MonoBehaviour {
@@ -24,7 +25,12 @@ public class Castle : MonoBehaviour {
     }
 
 	private Cell searchFreeCell() {
-		//TODO: Implement search algorithm
-		return null;
+		Cell castleCell = owner.castleCell;
+		List<Cell> cells = GameController.instance.mapController.GetContiguousCells (castleCell);
+		foreach (Cell cell in cells) {
+			if (cell.hoverCharacter == null) {
+				return cell;
+			}
+		}
 	}
 }
