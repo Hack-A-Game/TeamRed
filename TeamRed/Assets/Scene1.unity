@@ -183,6 +183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa37ecfc365d29146ad49c713a3ee2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &941870663 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 166814, guid: 08f474be349742a44a71499834a41426, type: 2}
+  m_PrefabInternal: {fileID: 1513930706}
 --- !u!1001 &1513930706
 Prefab:
   m_ObjectHideFlags: 0
@@ -358,6 +362,18 @@ Prefab:
       propertyPath: m_FontData.m_BestFit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11458864, guid: 08f474be349742a44a71499834a41426, type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458864, guid: 08f474be349742a44a71499834a41426, type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458864, guid: 08f474be349742a44a71499834a41426, type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08f474be349742a44a71499834a41426, type: 2}
   m_IsPrefabParent: 0
@@ -403,6 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a499aad2ca6d8a4196c5827fb2d088e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1UI: {fileID: 0}
+  player2UI: {fileID: 941870663}
   mapController: {fileID: 0}
   selectedCharacter: {fileID: 0}
   currentTurnTime: 0

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Assets;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public Player player1;
     public Player player2;
+    public Image player1UI;
+    public Image player2UI;
     public Player actualPlayer;
     public MapController mapController;
     public Character selectedCharacter;
@@ -26,6 +29,8 @@ public class GameController : MonoBehaviour
         player1 = new Player(1);
         player2 = new Player(2);
         actualPlayer = player1; //TODO hacer aleatorio
+        player1UI.enabled = true;
+        player2UI.enabled = false;
     }
 
     //Cambia actualPlayer y reseta el contador de tiempo
@@ -34,10 +39,14 @@ public class GameController : MonoBehaviour
         if (actualPlayer.CompareTo(player1))
         {
             actualPlayer = player2;
+            player1UI.enabled = false;
+            player2UI.enabled = true;
         }
         else
         {
             actualPlayer = player1;
+            player1UI.enabled = true;
+            player2UI.enabled = false;
         }
 		actualPlayer.BeginTurn ();
 		currentTurnTime = TURN_TIME;
