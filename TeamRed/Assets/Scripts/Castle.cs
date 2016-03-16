@@ -82,17 +82,7 @@ void Update () {
         archer.owner = owner;
         cell.hoverCharacter = archer;
         archer.actualCell = cell;
-
-        if (archer.owner.playerId == 1)
-        {
-            Debug.Log("Red player");
-            archer.GetComponent<SpriteRenderer>().sprite = archer.red;
-        }
-        else
-        {
-            Debug.Log("Blue player");
-            archer.GetComponent<SpriteRenderer>().sprite = archer.blue;
-        }
+        owner.characters.Add(archer);
 
         //Spawn Canoneer
         cell = SearchFreeCell();
@@ -102,6 +92,7 @@ void Update () {
         cannoneer.owner = owner;
         cell.hoverCharacter = cannoneer;
         cannoneer.actualCell = cell;
+        owner.characters.Add(cannoneer);
 
         //Spawn King
         cell = SearchFreeCell();
@@ -111,6 +102,7 @@ void Update () {
         king.owner = owner;
         cell.hoverCharacter = king;
         king.actualCell = cell;
+        owner.characters.Add(king);
 
         //Spawn Archer
         cell = SearchFreeCell();
@@ -120,5 +112,28 @@ void Update () {
         mage.owner = owner;
         cell.hoverCharacter = mage;
         mage.actualCell = cell;
+        owner.characters.Add(mage);
+
+        foreach(Character character in owner.characters)
+        {
+            SetCharacterSprite(character);
+        }
     }
+
+
+
+    void SetCharacterSprite(Character character)
+    {
+        if (character.owner.playerId == 1)
+        {
+            Debug.Log("Red player");
+            character.GetComponent<SpriteRenderer>().sprite = character.red;
+        }
+        else
+        {
+            Debug.Log("Blue player");
+            character.GetComponent<SpriteRenderer>().sprite = character.blue;
+        }
+    }
+
 }

@@ -57,7 +57,7 @@ public abstract class Character : MonoBehaviour {
 		turnActions = maxAction;
 		this.sprite.enabled = true;
 		castle.SpawnPlayer (this);
-	}
+    }
 
 	private void UpdateTime(float time) {
 		GameController.instance.DecreaseTurnTime (time);

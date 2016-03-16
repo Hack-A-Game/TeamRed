@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &179724
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +140,8 @@ MonoBehaviour:
   isSpawning: 0
   characterInfoText: 
   actualCell: {fileID: 0}
+  red: {fileID: 0}
+  blue: {fileID: 0}
 --- !u!212 &21218062
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -242,6 +244,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: dec794ec99e19bd49bf4b6fba7ba2dac,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162120}
