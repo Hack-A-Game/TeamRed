@@ -28,10 +28,10 @@ void Update () {
     {
         //generar casilla aleatoria del otro lado
         Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value*6), Mathf.RoundToInt(UnityEngine.Random.value*10)];
-        while (cell.hoverCharacter.owner.CompareTo(this.owner))
+        /**while (cell.hoverCharacter.owner.CompareTo(this.owner))
         {
             cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
-        }
+        }**/
         CharacterAttack(cell);
     }
     
