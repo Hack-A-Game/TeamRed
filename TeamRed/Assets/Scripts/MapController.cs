@@ -7,8 +7,8 @@ public class MapController : MonoBehaviour
     public static MapController instance;
     public Cell[,] map;
     public Vector3 mapOrigin;
-    private int _mapWidth = 7;
-    private int _mapHeight = 11;
+    public int _mapWidth = 7;
+    public int _mapHeight = 11;
     private float _cellSpacing = 0.5f;
 
     void Awake()
@@ -105,6 +105,21 @@ public class MapController : MonoBehaviour
         if (cell.posX + 1 < _mapWidth && cell.posY + 1 < _mapHeight)
         {
             contiguousCells.Add(map[cell.posX + 1, cell.posY + 1]);
+        }
+
+        Cell cellToRemove = null;
+        foreach(Cell c in contiguousCells)
+        {
+            if(c == GameController.instance.player1.castleCells[0] || c == GameController.instance.player1.castleCells[1] ||
+                c == GameController.instance.player2.castleCells[0] || c == GameController.instance.player2.castleCells[1])
+            {
+                cellToRemove = c;
+            }
+        }
+
+        if(cellToRemove != null)
+        {
+            contiguousCells.Remove(cellToRemove);
         }
 
         return contiguousCells;
