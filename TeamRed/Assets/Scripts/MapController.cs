@@ -9,7 +9,7 @@ public class MapController : MonoBehaviour
     public Vector3 mapOrigin;
     public int _mapWidth = 7;
     public int _mapHeight = 11;
-    private float _cellSpacing = 0.5f;
+    private float _cellSpacing = 0.24f;
 
     void Awake()
     {
@@ -35,7 +35,7 @@ public class MapController : MonoBehaviour
 
     void GenerateMap()
     {
-        Camera.main.transform.position = new Vector3(1.45f, 2.83f, -10f);
+        Camera.main.transform.position = new Vector3(0.73f, 1.15f, -10f);
 
         map = new Cell[_mapWidth, _mapHeight];
 
