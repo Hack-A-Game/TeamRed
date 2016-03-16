@@ -76,7 +76,7 @@ public class Castle : Character {
 
     public override void CharacterAttack(Cell cell)
     {
-        if (cell.hoverCharacter != null)
+		if (cell.hoverCharacter != null && cell.hoverCharacter.owner != owner)
         {
             //Debug.Log("Damage " + 30);//this.damage);
             //Debug.Log("currenthoveredhealth " + cell.hoverCharacter.currentHealth);
@@ -87,7 +87,7 @@ public class Castle : Character {
 
         foreach (Cell cell1 in MapController.instance.GetContiguousCells(cell))
         {
-            if (cell1.hoverCharacter != null)
+			if (cell1.hoverCharacter != null && cell.hoverCharacter.owner != owner)
             {
                 //Debug.Log("celda contiguacon enemigo " + cell1);//this.damage);
                 cell1.hoverCharacter.currentHealth -= 3;
