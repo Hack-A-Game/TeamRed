@@ -16,7 +16,7 @@ public class Castle : MonoBehaviour {
 	
 	}
 
-    void SpawnPlayer(Character character, Cell cell)
+    public void SpawnPlayer(Character character, Cell cell)
     {
 
     }
