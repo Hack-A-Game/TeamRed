@@ -22,9 +22,9 @@ public class UIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        //playerText = "PLAYER"+ GameController.actualPlayer.toString();
+        playerText.text = "PLAYER"+ GameController.instance.actualPlayer.playerId.ToString();
         //pointsText = "POINTS" + GameController.actualPlayer.points.toString();
-        //timeText = "TIME" + GameController.remainingTime.toString();
+        timeText.text = "TIME" + GameController.instance.currentTurnTime.ToString();
 	
 	}
 }

@@ -19,6 +19,9 @@ public class GameController : MonoBehaviour {
             instance = this;
             currentTurnTime = TURN_TIME;
         }
+        player1 = new Player(1);
+        player2 = new Player(2);
+        actualPlayer = player1; //TODO hacer aleatorio
     }
 
     //Cambia actualPlayer y reseta el contador de tiempo
@@ -36,9 +39,7 @@ public class GameController : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        player1 = new Player(1);
-        player2 = new Player(2);
-        actualPlayer = player1; //TODO hacer aleatorio
+        
 	}
 	
 	// Update is called once per frame
