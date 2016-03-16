@@ -35,7 +35,16 @@ public class Castle : Character {
 
     private void RandomAttack()
     {
-        Cell cell = MapController.instance.map[Mathf.RoundToInt(UnityEngine.Random.value * 6), Mathf.RoundToInt(UnityEngine.Random.value * 10)];
+        int randomX = Mathf.RoundToInt(UnityEngine.Random.value * 3);
+        int randomY = Mathf.RoundToInt(UnityEngine.Random.value * 5);
+        if (owner.playerId != 1)
+        {
+            randomX += 3;
+            randomY += 5;
+        }
+
+        Cell cell = MapController.instance.map[randomX, randomY];
+
         SpawnBullet(cell.transform.position);
         CharacterAttack(cell);
         Debug.Log("Castillo ataca celda. x= " + cell.posX + "y= " + cell.posY);
