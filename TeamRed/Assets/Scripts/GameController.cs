@@ -29,14 +29,19 @@ public class GameController : MonoBehaviour {
         if (Input.touchCount == 1 )
         {
            if( Input.GetTouch(0).phase == TouchPhase.Began)
-            {
+           {
                 var touchPosition = Input.GetTouch(0).position;
-                Debug.Log("Posicion:" + touchPosition);
-            }
+                RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
+                if (hit != null && hit.collider != null)
+                {
+                    Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
+                    Destroy(hitCell.gameObject); // TODO Take this out
+                }
+           }
         }
         else
         {
-            //Debug.Log("User has  finger(s) touching the screen");
+            //Don't do anything
         }
     }
 }
