@@ -40,12 +40,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf7b278330d022479d19ee4ce15c99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  maxHealth: 0
+  currentHealth: 0
   maxMove: 0
   maxAction: 0
   costPerAction: 0
   costPerMovement: 0
-  canMove: 1
+  damage: 0
+  attackRange: 0
+  turnMoves: 0
+  turnActions: 0
+  turnsToSpawn: 0
+  isSpawning: 0
+  characterInfoText: 
+  actualCell: {fileID: 0}
 --- !u!212 &21241248
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -72,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bd151eddd8990945bb3342bd4bb9bb0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dec794ec99e19bd49bf4b6fba7ba2dac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +90,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dec794ec99e19bd49bf4b6fba7ba2dac,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162120}

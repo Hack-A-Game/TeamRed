@@ -4,7 +4,9 @@ using System.Collections;
 public class Cell : MonoBehaviour {
 
     public Character hoverCharacter = null;
+    [SerializeField]
     int _posX;
+    [SerializeField]
     int _posY;
 
     public int posX { get { return _posX; } }
