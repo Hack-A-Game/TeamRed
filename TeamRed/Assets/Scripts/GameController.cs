@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         selectedCharacter = null;
+        SpawnCastles();
     }
 	
 	// Update is called once per frame
@@ -113,5 +114,17 @@ public class GameController : MonoBehaviour {
     public void DecreaseTurnTime(float timeDecrease)
     {
         currentTurnTime -= timeDecrease; //TODO modificar el contador aqui!!
+    }
+
+    public void SpawnCastles()
+    {
+        GameObject gameObject = Instantiate(Resources.Load("Castle") as GameObject);
+        Castle castle = gameObject.GetComponent<Castle>();
+        castle.owner = player1;
+        Cell cell = MapController.instance.map[0, 0];
+        player1.castle = castle;
+        player1.castleCell = cell;
+        gameObject.transform.position = new Vector3(cell.transform.position.x, cell.transform.position.y, -9.6f);
+
     }
 }

@@ -9,12 +9,14 @@ namespace Assets
     public class Player
     {
         public int playerId;
-        List<Character> characters;
+        public List<Character> characters;
 		public Castle castle;
 		public Cell castleCell;
+
         public Player (int id)
         {
             playerId = id;
+            characters = new List<Character>();
         }
 
         public bool CompareTo(Player other)
@@ -25,11 +27,6 @@ namespace Assets
             {
                 return false;
             } 
-        }
-
-        public void SpawnPlayers()
-        {
-            
         }
     }
 
