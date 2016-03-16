@@ -26,7 +26,7 @@ public abstract class Character : MonoBehaviour {
 		startVariables ();
 	}
 
-	void abstract startVariables ();
+	abstract void startVariables ();
 
 	void beginTurn() {
 		if (isSpawning) {

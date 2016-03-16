@@ -7,8 +7,8 @@ public class Cell : MonoBehaviour {
     int _posX;
     int _posY;
 
-    int posX { get { return _posX; } }
-    int posY { get { return _posY; } }
+    public int posX { get { return _posX; } }
+    public int posY { get { return _posY; } }
 
 
 	// Use this for initialization
