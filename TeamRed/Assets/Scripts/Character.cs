@@ -29,6 +29,8 @@ public abstract class Character : MonoBehaviour {
     public Sprite red;
     public Sprite blue;
 
+    public bool hasMoved = false;
+
     // Use this for initialization
     public void Start () {
         characterInfoText = "";
@@ -83,6 +85,12 @@ public abstract class Character : MonoBehaviour {
 	}
 
 	public void Move(Cell destiny) {
+ 
+        if(this.GetType() == typeof(King) && hasMoved)
+        {
+            return;
+        }
+
 		this.transform.position = destiny.transform.position;
 		Vector3 tmp = this.transform.position;
 		tmp.z = -tmp.y;
@@ -92,7 +100,8 @@ public abstract class Character : MonoBehaviour {
 		actualCell = destiny;
 		destiny.hoverCharacter = this;
 		turnMoves--;
-	}
+        hasMoved = true;
+    }
 
 	public void Attack(Cell cell) {
 		if (turnActions > 0 && CanAttack (cell)) {

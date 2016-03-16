@@ -53,6 +53,11 @@ public class GameController : MonoBehaviour
             player1UI.enabled = true;
             player2UI.enabled = false;
         }
+        foreach(Character charac in actualPlayer.characters)
+        {
+            charac.hasMoved = false;
+        }
+        
 		actualPlayer.BeginTurn ();
 		currentTurnTime = TURN_TIME;
 		selectedCharacter = null;
@@ -149,6 +154,13 @@ public class GameController : MonoBehaviour
             if (c.hoverCharacter == null && this.selectedCharacter.CanMove(c))
             {
                 Debug.Log("Me he movido");
+                if(selectedCharacter.GetType() == typeof(King))
+                {
+                    if(selectedCharacter.ManhattanDistance(c) > 1f)
+                    {
+                        return false;
+                    }
+                }
                 this.selectedCharacter.Move(c);
             }
             else if (c.hoverCharacter != null)
