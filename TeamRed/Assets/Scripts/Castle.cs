@@ -10,17 +10,17 @@ public class Castle : Character {
 	public List<Cell> adjacentCells;
     // Use this for initialization
     void Start () {
-        SpawnCharacters();
-        contador = 0;
 		adjacentCells = new List<Cell> ();
 		foreach(Cell castleCell in owner.castleCells)
 		{
 			List<Cell> tmp = MapController.instance.GetContiguousCells (castleCell);
 			foreach(Cell c in tmp) {
-				if (owner.castleCells.IndexOf(c) >= 0)
+				if (owner.castleCells.IndexOf(c) <= 0)
 					adjacentCells.Add(c);
 			}
 		}
+		SpawnCharacters();
+		contador = 0;
 	}
 
 	// Update is called once per frame
