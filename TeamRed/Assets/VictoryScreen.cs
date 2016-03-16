@@ -6,6 +6,7 @@ public class VictoryScreen : MonoBehaviour {
 
     public Sprite player1, player2;
     public Image image;
+    float enterTime = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,16 +20,19 @@ public class VictoryScreen : MonoBehaviour {
         {
             image.sprite = player2;
         }
+
+        enterTime = Time.time;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 
     public void ReturnToMainMenu()
     {
-        Application.LoadLevel("initMenu");
+        if (enterTime + 2f <= Time.time)
+            Application.LoadLevel("initMenu");
     }
 }
