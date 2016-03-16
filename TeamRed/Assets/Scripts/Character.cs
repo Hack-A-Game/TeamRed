@@ -65,10 +65,10 @@ public abstract class Character : MonoBehaviour {
 
 	float CalculateMoveCost(Cell cell) {
 		Debug.Log ("CostMov: " + costPerMovement + " Manh:" +ManhattanDistance(cell));
-        if (ManhattanDistance(cell) <= turnMoves)
+        //if (ManhattanDistance(cell) <= turnMoves)
             return costPerMovement * ManhattanDistance(cell);
-        else
-            return 1000;
+        //else
+            //return 1000;
 	}
 
 	public float ManhattanDistance(Cell cell) {
