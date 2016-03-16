@@ -43,22 +43,27 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        decreaseTurnTime(Time.deltaTime); //Decremento por fotograma
+		decreaseTurnTime(Time.deltaTime); //Decremento por fotograma
         if (currentTurnTime <= 0)
         {
             ChangeTurn();
         }
-        if (Input.touchCount == 1)
+        if (Input.touchCount == 1 )
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
-            {
+           if( Input.GetTouch(0).phase == TouchPhase.Began)
+           {
                 var touchPosition = Input.GetTouch(0).position;
-                Debug.Log("Posicion:" + touchPosition);
-            }
+                RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
+                if (hit != null && hit.collider != null)
+                {
+                    Cell hitCell = hit.collider.gameObject.GetComponent<Cell>();
+                    Destroy(hitCell.gameObject); // TODO Take this out
+                }
+           }
         }
         else
         {
-            //Debug.Log("User has  finger(s) touching the screen");
+            //Don't do anything
         }
     }
     public void decreaseTurnTime(float timeDecrease)
